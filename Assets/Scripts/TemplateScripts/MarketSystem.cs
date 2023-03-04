@@ -123,12 +123,11 @@ public class MarketSystem : MonoSingleton<MarketSystem>
         GameManager gameManager = GameManager.Instance;
         MoneySystem moneySystem = MoneySystem.Instance;
 
-        switch (fieldCount)
+        /*switch (fieldCount)
         {
             case 0:
                 if (gameManager.money >= itemData.fieldPrice.castleHealth)
                 {
-                    SoundSystem.Instance.CallUpgradeSound();
                     moneySystem.MoneyTextRevork(itemData.fieldPrice.castleHealth * -1);
                     itemData.SetCastleHealth();
                     marketMainField.MarketMainFieldPrice[0].text = moneySystem.NumberTextRevork(itemData.fieldPrice.castleHealth);
@@ -138,7 +137,6 @@ public class MarketSystem : MonoSingleton<MarketSystem>
             case 1:
                 if (gameManager.money >= itemData.fieldPrice.gunAtackPower)
                 {
-                    SoundSystem.Instance.CallUpgradeSound();
                     moneySystem.MoneyTextRevork(itemData.fieldPrice.gunAtackPower * -1);
                     itemData.SetGunAtackPower();
                     marketMainField.MarketMainFieldPrice[1].text = moneySystem.NumberTextRevork(itemData.fieldPrice.gunAtackPower);
@@ -148,8 +146,7 @@ public class MarketSystem : MonoSingleton<MarketSystem>
             case 2:
                 if (gameManager.money >= itemData.fieldPrice.gunDistance)
                 {
-                    SoundSystem.Instance.CallUpgradeSound();
-                    moneySystem.MoneyTextRevork(itemData.fieldPrice.gunDistance * -1);
+                    moneySystem.MoneyTextRxevork(itemData.fieldPrice.gunDistance * -1);
                     itemData.SetGunDistance();
                     marketMainField.MarketMainFieldPrice[2].text = moneySystem.NumberTextRevork(itemData.fieldPrice.gunDistance);
                     marketMainField.MarketMainFieldLevel[2].text = "Level " + itemData.factor.gunDistance;
@@ -158,20 +155,19 @@ public class MarketSystem : MonoSingleton<MarketSystem>
             case 3:
                 if (gameManager.money >= itemData.fieldPrice.gunReloadTime)
                 {
-                    SoundSystem.Instance.CallUpgradeSound();
                     moneySystem.MoneyTextRevork((int)itemData.fieldPrice.gunReloadTime * -1);
                     itemData.SetGunReloadTime();
                     marketMainField.MarketMainFieldPrice[3].text = moneySystem.NumberTextRevork((int)itemData.fieldPrice.gunReloadTime);
                     marketMainField.MarketMainFieldLevel[3].text = "Level " + itemData.factor.gunReloadTime;
                 }
                 break;
-        }
+        }*/
     }
     private void TextPlacement()
     {
         ItemData itemData = ItemData.Instance;
         MoneySystem moneySystem = MoneySystem.Instance;
-
+        /*
         marketMainField.MarketMainFieldPrice[0].text = moneySystem.NumberTextRevork(itemData.fieldPrice.castleHealth);
         marketMainField.MarketMainFieldLevel[0].text = "Level " + itemData.factor.castleHealth;
 
@@ -182,7 +178,7 @@ public class MarketSystem : MonoSingleton<MarketSystem>
         marketMainField.MarketMainFieldLevel[2].text = "Level " + itemData.factor.gunDistance;
 
         marketMainField.MarketMainFieldPrice[3].text = moneySystem.NumberTextRevork((int)itemData.fieldPrice.gunReloadTime);
-        marketMainField.MarketMainFieldLevel[3].text = "Level " + itemData.factor.gunReloadTime;
+        marketMainField.MarketMainFieldLevel[3].text = "Level " + itemData.factor.gunReloadTime;*/
     }
     private void MarketOnOffPlacement()
     {
