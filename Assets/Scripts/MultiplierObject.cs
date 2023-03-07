@@ -11,21 +11,21 @@ public class MultiplierObject : MonoBehaviour
     }
 
     public Collider multiplierCollider;
-    [SerializeField] private MultiplierType _multiplierType;
-    [SerializeField] private int _multiplierCount;
+    public MultiplierType multiplierType;
+    public int multiplierCount;
     public int multiplierPosCount = -1;
 
     public void StartMultiplierPlacement()
     {
         if (Random.Range(0, 2) == 0)
         {
-            _multiplierType = MultiplierType.multiply;
-            _multiplierCount = Random.Range(2, MultiplierSystem.Instance.multiplierMaxCount);
+            multiplierType = MultiplierType.multiply;
+            multiplierCount = Random.Range(2, MultiplierSystem.Instance.multiplierMaxCount);
         }
         else
         {
-            _multiplierType = MultiplierType.plus;
-            _multiplierCount = Random.Range(2, MultiplierSystem.Instance.plusMaxCount);
+            multiplierType = MultiplierType.plus;
+            multiplierCount = Random.Range(2, MultiplierSystem.Instance.plusMaxCount);
         }
     }
 
@@ -33,9 +33,9 @@ public class MultiplierObject : MonoBehaviour
     {
         ObjectID objectID = other.GetComponent<ObjectID>();
 
-        if (_multiplierType == MultiplierType.multiply)
-            objectID.objectCount *= _multiplierCount;
+        if (multiplierType == MultiplierType.multiply)
+            objectID.objectCount *= multiplierCount;
         else
-            objectID.objectCount += _multiplierCount;
+            objectID.objectCount += multiplierCount;
     }
 }

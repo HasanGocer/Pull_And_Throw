@@ -9,10 +9,14 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
         public List<bool> multiplierBool = new List<bool>();
         public List<int> multiplierCount = new List<int>();
         public List<MultiplierObject.MultiplierType> multiplierTypes = new List<MultiplierObject.MultiplierType>();
+        public List<GameObject> multiplierPos = new List<GameObject>();
+    }
+    public class MultiplierStat
+    {
+        public MultiplierClass multiplierClass = new MultiplierClass();
+        public MultiplierClass multiplierMarketClass = new MultiplierClass();
     }
 
-    public MultiplierClass multiplierClass = new MultiplierClass();
     public int multiplierMaxCount, plusMaxCount;
-    public List<GameObject> marketPos = new List<GameObject>();
-    public List<GameObject> multiplierPos = new List<GameObject>();
+    public MultiplierStat multiplierStat = new MultiplierStat();
 }

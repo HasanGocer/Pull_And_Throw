@@ -80,8 +80,10 @@ public class MultiplierMove : MonoBehaviour
 
         if (multiplierObject.multiplierPosCount != -1)
         {
-
-
+            transform.position = MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierPos[multiplierObject.multiplierPosCount].transform.position;
+            MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
+            MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
+            MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
         }
         else
         {
