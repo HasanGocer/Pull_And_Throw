@@ -10,8 +10,10 @@ public class MultiplierObject : MonoBehaviour
         plus = 1
     }
 
+    public Collider multiplierCollider;
     [SerializeField] private MultiplierType _multiplierType;
     [SerializeField] private int _multiplierCount;
+    public int multiplierPosCount = -1;
 
     public void StartMultiplierPlacement()
     {
