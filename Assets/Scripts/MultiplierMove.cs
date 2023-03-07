@@ -84,10 +84,11 @@ public class MultiplierMove : MonoBehaviour
             MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
             MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
             MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
+            MultiplierSystem.Instance.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
         }
         else
         {
-
+            transform.position = MultiplierSystem.Instance.multiplierStat.multiplierMarketClass.multiplierPos[multiplierObject.multiplierPosCount].transform.position;
         }
     }
 }
