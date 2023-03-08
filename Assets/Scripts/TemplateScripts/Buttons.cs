@@ -126,7 +126,7 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private IEnumerator WinButton()
     {
-        GameManager gameManager = GameManager.Instance;
+        GameManager gameManager = GameManager.Instance; 
 
         _winPrizeButton.enabled = false;
         gameManager.SetLevel();
