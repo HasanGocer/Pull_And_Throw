@@ -33,7 +33,7 @@ public class MultiplierObject : MonoBehaviour
 
         multiplierMarketCount = Random.Range(0, multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool.Count);
 
-        transform.position = multiplierSystem.multiplierStat.multiplierMarketClass.multiplierPos[multiplierMarketCount].transform.position;
+        transform.position = multiplierSystem.multiplierStatPos[multiplierMarketCount].transform.position;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierMarketCount] = true;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierCount[multiplierMarketCount] = multiplierCount;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierTypes[multiplierMarketCount] = multiplierType;

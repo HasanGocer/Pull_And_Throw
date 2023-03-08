@@ -10,15 +10,12 @@ public class MultiplierMove : MonoBehaviour
     [SerializeField] Rigidbody rb;
     public float timeForNextRay;
     float timer = 0;
-    bool move;
-    bool touchPlane;
     bool touchStartedOnPlayer;
     Touch touchFeyz;
     [SerializeField] MultiplierObject multiplierObject;
 
     void Start()
     {
-        move = false;
         touchStartedOnPlayer = false;
     }
 
@@ -26,69 +23,66 @@ public class MultiplierMove : MonoBehaviour
     {
         rb.isKinematic = false;
         touchStartedOnPlayer = true;
+        multiplierObject.multiplierCollider.isTrigger = false;
+        StartCoroutine(Move());
     }
 
-    private void Update()
+    private IEnumerator Move()
     {
-        timer += Time.deltaTime;
-
-        if (Input.touchCount > 0 && GameManager.Instance.gameStat == GameManager.GameStat.start)
+        yield return null;
+        while (touchStartedOnPlayer)
         {
-
-            touchFeyz = Input.GetTouch(0);
-            switch (touchFeyz.phase)
+            timer += Time.deltaTime;
+            if (Input.touchCount > 0 && GameManager.Instance.gameStat == GameManager.GameStat.start)
             {
-                case TouchPhase.Moved:
-                    {
-                        if (timer > timeForNextRay && touchStartedOnPlayer)
+
+                touchFeyz = Input.GetTouch(0);
+                switch (touchFeyz.phase)
+                {
+                    case TouchPhase.Moved:
                         {
-                            Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100));
-                            Vector3 direction = worldFromMousePos - Camera.main.transform.position;
-                            RaycastHit hit;
-                            if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 100f))
+                            if (timer > timeForNextRay && touchStartedOnPlayer)
                             {
-                                touchPlane = true;
-                                GameObject newWayPoint = new GameObject("WayPoint");
-                                newWayPoint.transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-                                timer = 0;
+                                Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100));
+                                Vector3 direction = worldFromMousePos - Camera.main.transform.position;
+                                RaycastHit hit;
+                                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 100f))
+                                {
+                                    timer = 0;
+                                    transform.position = Vector3.Lerp(transform.position, hit.transform.position, Time.deltaTime);
+                                    yield return new WaitForSeconds(Time.deltaTime);
+                                }
                             }
+                            break;
                         }
-                        break;
-                    }
-                case TouchPhase.Ended:
-                    {
-                        if (touchPlane == true)
+                    case TouchPhase.Ended:
                         {
                             touchStartedOnPlayer = false;
-                            move = true;
+                            break;
                         }
-                        break;
-                    }
+                }
             }
         }
+        yield return new WaitForSeconds(0.3f);
 
-        if (move && GameManager.Instance.gameStat == GameManager.GameStat.start)
-        {
+        if (GameManager.Instance.gameStat == GameManager.GameStat.start)
             FinishMove();
-        }
     }
 
     void FinishMove()
     {
-        move = false;
         rb.isKinematic = true;
+        multiplierObject.multiplierCollider.isTrigger = true;
 
         if (multiplierObject.multiplierPosCount != -1)
         {
-            transform.position = MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierPos[multiplierObject.multiplierPosCount].transform.position;
+            transform.position = MultiplierSystem.Instance.multiplierStatPos[multiplierObject.multiplierPosCount].transform.position;
             MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
             MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
             MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
             MultiplierSystem.Instance.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
         }
         else
-        {
-            transform.position = MultiplierSystem.Instance.multiplierStat.multiplierMarketClass.multiplierPos[multiplierObject.multiplierPosCount].transform.position;
-        }
+            transform.position = MultiplierSystem.Instance.multiplierMarketPos[multiplierObject.multiplierPosCount].transform.position;
     }
 }

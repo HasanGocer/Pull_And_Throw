@@ -55,11 +55,16 @@ public class GameManager : MonoSingleton<GameManager>
             PlayerPrefs.SetInt("sound", sound);
 
         if (PlayerPrefs.HasKey("first"))
+        {
             ItemData.Instance.factor = FactorPlacementRead();
+            MultiplierSystem.Instance.multiplierStat = MultiplierPlacementRead();
+        }
         else
         {
             PlayerPrefs.SetInt("first", 1);
             FactorPlacementWrite(ItemData.Instance.factor);
+            MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
+            MultiplierSystem.Instance.ObjectPlacement();
         }
     }
 
@@ -68,6 +73,11 @@ public class GameManager : MonoSingleton<GameManager>
         string jsonData = JsonUtility.ToJson(factor);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/FactorData.json", jsonData);
     }
+    public void MultiplierPlacementWrite(MultiplierSystem.MultiplierStat multiplier)
+    {
+        string jsonData = JsonUtility.ToJson(multiplier);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/MultiplierData.json", jsonData);
+    }
 
     public ItemData.Field FactorPlacementRead()
     {
@@ -75,6 +85,13 @@ public class GameManager : MonoSingleton<GameManager>
         ItemData.Field factor = new ItemData.Field();
         factor = JsonUtility.FromJson<ItemData.Field>(jsonRead);
         return factor;
+    }
+    public MultiplierSystem.MultiplierStat MultiplierPlacementRead()
+    {
+        string jsonRead = System.IO.File.ReadAllText(Application.persistentDataPath + "/MultiplierData.json");
+        MultiplierSystem.MultiplierStat multiplier = new MultiplierSystem.MultiplierStat();
+        multiplier = JsonUtility.FromJson<MultiplierSystem.MultiplierStat>(jsonRead);
+        return multiplier;
     }
 
     public void SetMoney()

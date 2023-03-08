@@ -9,7 +9,6 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
         public List<bool> multiplierBool = new List<bool>();
         public List<int> multiplierCount = new List<int>();
         public List<MultiplierObject.MultiplierType> multiplierTypes = new List<MultiplierObject.MultiplierType>();
-        public List<GameObject> multiplierPos = new List<GameObject>();
     }
     public class MultiplierStat
     {
@@ -17,6 +16,33 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
         public MultiplierClass multiplierMarketClass = new MultiplierClass();
     }
 
+    [SerializeField] int _OPMultiplierObjectCount;
     public int multiplierMaxCount, plusMaxCount;
     public MultiplierStat multiplierStat = new MultiplierStat();
+    public List<GameObject> multiplierMarketPos = new List<GameObject>();
+    public List<GameObject> multiplierStatPos = new List<GameObject>();
+
+    public void ObjectPlacement()
+    {
+        for (int i = 0; i < multiplierMarketPos.Count; i++)
+            if (multiplierStat.multiplierMarketClass.multiplierBool[i])
+            {
+                GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount, multiplierMarketPos[i].transform.position);
+                MultiplierObject multiplierObject = obj.GetComponent<MultiplierObject>();
+                multiplierObject.multiplierCount = multiplierStat.multiplierMarketClass.multiplierCount[i];
+                multiplierObject.multiplierMarketCount = i;
+                multiplierObject.multiplierType = multiplierStat.multiplierMarketClass.multiplierTypes[i];
+            }
+
+        for (int i = 0; i < multiplierStatPos.Count; i++)
+            if (multiplierStat.multiplierClass.multiplierBool[i])
+            {
+                GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount, multiplierStatPos[i].transform.position);
+                MultiplierObject multiplierObject = obj.GetComponent<MultiplierObject>();
+                multiplierObject.multiplierCount = multiplierStat.multiplierClass.multiplierCount[i];
+                multiplierObject.multiplierPosCount = i;
+                multiplierObject.multiplierType = multiplierStat.multiplierClass.multiplierTypes[i];
+
+            }
+    }
 }
