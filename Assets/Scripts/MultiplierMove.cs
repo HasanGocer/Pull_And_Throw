@@ -11,6 +11,7 @@ public class MultiplierMove : MonoBehaviour
     public float timeForNextRay;
     float timer = 0;
     bool touchStartedOnPlayer;
+    bool finishTime;
     Touch touchFeyz;
     [SerializeField] MultiplierObject multiplierObject;
 
@@ -24,13 +25,12 @@ public class MultiplierMove : MonoBehaviour
         rb.isKinematic = false;
         touchStartedOnPlayer = true;
         multiplierObject.multiplierCollider.isTrigger = false;
-        StartCoroutine(Move());
+        finishTime = true;
     }
 
-    private IEnumerator Move()
+    private void Update()
     {
-        yield return null;
-        while (touchStartedOnPlayer)
+        if (touchStartedOnPlayer)
         {
             timer += Time.deltaTime;
             if (Input.touchCount > 0 && GameManager.Instance.gameStat == GameManager.GameStat.start)
@@ -50,7 +50,6 @@ public class MultiplierMove : MonoBehaviour
                                 {
                                     timer = 0;
                                     transform.position = Vector3.Lerp(transform.position, hit.transform.position, Time.deltaTime);
-                                    yield return new WaitForSeconds(Time.deltaTime);
                                 }
                             }
                             break;
@@ -63,26 +62,27 @@ public class MultiplierMove : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(0.3f);
-
-        if (GameManager.Instance.gameStat == GameManager.GameStat.start)
+        else if (GameManager.Instance.gameStat == GameManager.GameStat.start && finishTime)
             FinishMove();
     }
 
     void FinishMove()
     {
+        MultiplierSystem multiplierSystem = MultiplierSystem.Instance;
+
+        finishTime = false;
         rb.isKinematic = true;
         multiplierObject.multiplierCollider.isTrigger = true;
 
         if (multiplierObject.multiplierPosCount != -1)
         {
-            transform.position = MultiplierSystem.Instance.multiplierStatPos[multiplierObject.multiplierPosCount].transform.position;
-            MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
-            MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
-            MultiplierSystem.Instance.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
-            MultiplierSystem.Instance.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
+            transform.position = multiplierSystem.multiplierStatPos[multiplierObject.multiplierPosCount].transform.position;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
+            multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
         }
         else
-            transform.position = MultiplierSystem.Instance.multiplierMarketPos[multiplierObject.multiplierPosCount].transform.position;
+            transform.position = multiplierSystem.multiplierMarketPos[multiplierObject.multiplierPosCount].transform.position;
     }
 }

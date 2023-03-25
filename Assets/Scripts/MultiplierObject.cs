@@ -31,12 +31,12 @@ public class MultiplierObject : MonoBehaviour
             multiplierCount = Random.Range(2, multiplierSystem.plusMaxCount);
         }
 
-        multiplierMarketCount = Random.Range(0, multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool.Count);
+        while (multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierMarketCount = Random.Range(0, multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool.Count)]) ;
 
-        transform.position = multiplierSystem.multiplierStatPos[multiplierMarketCount].transform.position;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierMarketCount] = true;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierCount[multiplierMarketCount] = multiplierCount;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierTypes[multiplierMarketCount] = multiplierType;
+        transform.position = multiplierSystem.multiplierStatPos[multiplierMarketCount].transform.position;
     }
 
     private void OnTriggerEnter(Collider other)

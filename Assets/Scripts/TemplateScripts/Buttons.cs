@@ -121,12 +121,11 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.gameStat = GameManager.GameStat.start;
         startPanel.SetActive(false);
 
-        StartCoroutine(TapSystem.Instance.TapStart());
         // MarketSystem.Instance.GameStart();
     }
     private IEnumerator WinButton()
     {
-        GameManager gameManager = GameManager.Instance; 
+        GameManager gameManager = GameManager.Instance;
 
         _winPrizeButton.enabled = false;
         gameManager.SetLevel();
