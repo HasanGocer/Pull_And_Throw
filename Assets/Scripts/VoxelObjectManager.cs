@@ -24,12 +24,12 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
     }
 
-    public void ChildDown(int downChild)
+    public void ChildDown(GameObject stickman, int downChild)
     {
+        TapSystem.Instance.StickmanBackAdded(stickman);
+
         for (int i = 0; i < downChild; i++)
-        {
             _voxelMainObject.transform.GetChild(Random.Range(0, _voxelMainObject.transform.childCount)).transform.DOJump(_downPos.transform.position, 1, 1, 1);
-        }
     }
 
 }

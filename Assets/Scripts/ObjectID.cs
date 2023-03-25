@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class ObjectID : MonoBehaviour
 {
-    public int objectCount;
+    public AnimController animController;
+    public Rigidbody rb;
 }

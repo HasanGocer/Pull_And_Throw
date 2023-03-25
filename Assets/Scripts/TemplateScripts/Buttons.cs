@@ -67,7 +67,7 @@ public class Buttons : MonoSingleton<Buttons>
         _globalPanel.SetActive(true);
         startPanel.SetActive(true);
 
-        MarketSystem.Instance.MarketStart();
+        TapSystem.Instance.StickmanSort();
     }
     public IEnumerator NoThanxOnActive()
     {

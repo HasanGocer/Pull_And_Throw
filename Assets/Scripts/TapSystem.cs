@@ -21,6 +21,8 @@ public class TapSystem : MonoSingleton<TapSystem>
     [SerializeField] GameObject _stickmanFinishJumpPos;
     [SerializeField] GameObject _stickmanStartHitPos;
     [SerializeField] float _upperCountdown;
+    [SerializeField] float _velocityPower;
+    public int objectCount;
 
     public void Update()
     {
@@ -34,18 +36,26 @@ public class TapSystem : MonoSingleton<TapSystem>
         for (int i = 0; i < _stickmanCount; i++)
             _stickmans.Add(ObjectPool.Instance.GetPooledObject(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - i * _sticmanDistance)));
     }
+    public void StickmanBackAdded(GameObject stickman)
+    {
+        ObjectPool.Instance.AddObject(_OPStickmanCount, stickman);
+    }
+
     private void StickmanAdd()
     {
         _stickmans.Add(ObjectPool.Instance.GetPooledObject(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - _stickmans.Count * _sticmanDistance)));
-
     }
 
     private IEnumerator TapMechanic()
     {
         GameObject stickman = StickmanJump();
+        ObjectID objectID = stickman.GetComponent<ObjectID>();
+
         StickmanAdd();
         yield return new WaitForSeconds(_upperCountdown);
         stickman.transform.position = _stickmanStartHitPos.transform.position;
+        stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 90, stickman.transform.rotation.y, stickman.transform.rotation.z));
+        objectID.rb.velocity = new Vector3(0, 0, _velocityPower);
     }
 
     private GameObject StickmanJump()
