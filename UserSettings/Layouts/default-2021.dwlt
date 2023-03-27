@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1366
     height: 685
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 22
+  controlID: 60
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 105
+  controlID: 111
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 106
+  controlID: 105
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,22 +404,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Asus\Desktop\Code\GitHub\Pull_And_Throw
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f2f10000
-    m_LastClickedID: 61938
-    m_ExpandedIDs: 0000000096e6000000ca9a3b
+    scrollPos: {x: 0, y: 28}
+    m_SelectedIDs: 96e60000
+    m_LastClickedID: 59030
+    m_ExpandedIDs: 0000000096e60000f2f10000fc1b0100ce20010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -475,21 +475,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000
+    m_ExpandedInstanceIDs: c623000030230100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ObjectID
-      m_OriginalName: ObjectID
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 4784
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 3}
     m_CreateAssetUtility:
@@ -576,10 +576,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 406c0000
-      m_LastClickedID: 27712
-      m_ExpandedIDs: 2efbffff
+      scrollPos: {x: 0, y: 120}
+      m_SelectedIDs: e46c0000
+      m_LastClickedID: 27876
+      m_ExpandedIDs: b244ffff5445ffff5c45ffff7445ffff7a45ffffb247ffff2efbffff246c0000706c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -595,7 +595,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 12}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -862,9 +862,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.33287048, y: 21.94332, z: -16.058859}
+    m_Target: {x: -0.03686714, y: 4.653963, z: -7.097759}
     speed: 2
-    m_Value: {x: 0.33287048, y: 21.94332, z: -16.058859}
+    m_Value: {x: -0.03686714, y: 4.653963, z: -7.097759}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -911,13 +911,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.022603175, y: 0.9621467, z: -0.08421888, w: -0.25821865}
+    m_Target: {x: -0.22035001, y: 0.74115217, z: -0.28943732, w: -0.56424516}
     speed: 2
-    m_Value: {x: -0.022603096, y: 0.96214336, z: -0.08421859, w: -0.25821775}
+    m_Value: {x: -0.22034922, y: 0.74114954, z: -0.28943628, w: -0.56424314}
   m_Size:
-    m_Target: 13.971755
+    m_Target: 12.74259
     speed: 2
-    m_Value: 13.971755
+    m_Value: 12.74259
   m_Ortho:
     m_Target: 0
     speed: 2
