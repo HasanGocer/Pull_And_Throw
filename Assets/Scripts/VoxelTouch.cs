@@ -7,6 +7,6 @@ public class VoxelTouch : MonoSingleton<VoxelTouch>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Object"))
-            VoxelObjectManager.Instance.ChildDown(gameObject, TapSystem.Instance.objectCount);
+            VoxelObjectManager.Instance.ChildDown(other.gameObject, TapSystem.Instance.objectCount);
     }
 }
