@@ -2718,10 +2718,10 @@ MonoBehaviour:
       type: 3}
     objectParent: {fileID: 0}
     poolSize: 30
-  - objectPrefab: {fileID: 4518167599632954006, guid: 5e7b969ed1ee9b84989c99528854a126,
+  - objectPrefab: {fileID: 2932992399633311987, guid: 90042118ec112c346a1bb1aaa81f77b7,
       type: 3}
     objectParent: {fileID: 0}
-    poolSize: 100
+    poolSize: 150
 --- !u!114 &1713457378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,6 +2758,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac74eb9c41037a44ae3b364ba415648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  field:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
+  standart:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
+  factor:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
+  constant:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
+  maxFactor:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
+  max:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
+  fieldPrice:
+    stickmanConstant: 0
+    addedMultiplier: 0
+    standartMoney: 0
 --- !u!1001 &1772594919
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -70,8 +70,12 @@ public class UpperManager : MonoSingleton<UpperManager>
 
         if (itemData.fieldPrice.standartMoney <= gameManager.money && itemData.factor.standartMoney < itemData.maxFactor.standartMoney)
         {
+            MoneySystem.Instance.MoneyTextRevork((int)itemData.fieldPrice.standartMoney);
+            itemData.SetStandartMoney();
+            TapSystem.Instance.SetNewObjectCount();
 
             _standartMoneyUpperLevel.text = "level " + itemData.factor.standartMoney;
             _StandartMoneyUpperMoney.text = itemData.fieldPrice.standartMoney.ToString();
         }
     }
+}
