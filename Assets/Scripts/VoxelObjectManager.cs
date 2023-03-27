@@ -26,14 +26,20 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
 
     public void ChildDown(GameObject stickman, int downChild)
     {
-        TapSystem.Instance.StickmanBackAdded(stickman);
+        Rigidbody rb = stickman.GetComponent<Rigidbody>();
+
+        stickman.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+        stickman.SetActive(false);
+
         int count;
         for (int i = 0; i < downChild; i++)
-        {
-
-            _voxelMainObject.transform.GetChild(count = Random.Range(0, _voxelMainObject.transform.childCount)).GetComponent<Rigidbody>().isKinematic = false;
-            _voxelMainObject.transform.GetChild(count).SetParent(null);
-        }
+            if (_voxelMainObject.transform.childCount > 0)
+            {
+                _voxelMainObject.transform.GetChild(count = Random.Range(0, _voxelMainObject.transform.childCount)).GetComponent<Rigidbody>().isKinematic = false;
+                _voxelMainObject.transform.GetChild(count).SetParent(null);
+            }
     }
 
 }

@@ -997,8 +997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _VoxelObject:
-  - {fileID: 919132149155446097, guid: 40044e28a07781340b512be397295af8, type: 3}
-  - {fileID: 919132149155446097, guid: 2f35cdbfc9087e04c90a7c43f4b9ba49, type: 3}
+  - {fileID: 6402054265715297604, guid: 7dd47e34fd4751b46858425e19942ff6, type: 3}
+  - {fileID: 1793294079972262149, guid: b0ad77305fe944d4383c20b04ff370b5, type: 3}
   voxelObjectCount: 0
   voxelObjectChildCount: 0
   _voxelObjectPos: {fileID: 1651701295}
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   _OPStickmanCount: 1
   _stickmans: []
   _stickmanPos: {fileID: 1619275116}
-  _sticmanDistance: 1
+  _sticmanDistance: 1.5
   _stickmanCount: 20
   _stickmanFinishJumpPos: {fileID: 1713060212}
   _stickmanStartHitPos: {fileID: 1572664387}

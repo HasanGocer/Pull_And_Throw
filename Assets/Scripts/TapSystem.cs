@@ -36,10 +36,6 @@ public class TapSystem : MonoSingleton<TapSystem>
         for (int i = 0; i < _stickmanCount; i++)
             _stickmans.Add(ObjectPool.Instance.GetPooledObject(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - i * _sticmanDistance)));
     }
-    public void StickmanBackAdded(GameObject stickman)
-    {
-        ObjectPool.Instance.AddObject(_OPStickmanCount, stickman);
-    }
     public void SetNewObjectCount()
     {
         MultiplierSystem multiplierSystem = MultiplierSystem.Instance;
@@ -53,17 +49,31 @@ public class TapSystem : MonoSingleton<TapSystem>
             }
     }
 
+    private void StickmanMove()
+    {
+        for (int i = 0; i < _stickmans.Count; i++)
+            StartCoroutine(StickmanMoveEnum(i));
+    }
+    private IEnumerator StickmanMoveEnum(int i)
+    {
+        _stickmans[i].transform.DOMove(new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - i * _sticmanDistance), 0.1f);
+        yield return new WaitForSeconds(0.1f);
+    }
     private void StickmanAdd()
     {
-        _stickmans.Add(ObjectPool.Instance.GetPooledObject(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - _stickmans.Count * _sticmanDistance)));
+        _stickmans.Add(ObjectPool.Instance.GetPooledObjectAdd(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - (_stickmans.Count + 1) * _sticmanDistance)));
     }
 
     private IEnumerator TapMechanic()
     {
         GameObject stickman = StickmanJump();
         ObjectID objectID = stickman.GetComponent<ObjectID>();
+        Rigidbody rb = stickman.GetComponent<Rigidbody>();
 
         StickmanAdd();
+        StickmanMove();
+
+        rb.isKinematic = false;
         yield return new WaitForSeconds(_upperCountdown);
         stickman.transform.position = _stickmanStartHitPos.transform.position;
         stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 90, stickman.transform.rotation.y, stickman.transform.rotation.z));
