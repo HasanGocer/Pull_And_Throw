@@ -5,19 +5,24 @@ using Animancer;
 
 public class AnimController : MonoBehaviour
 {
-    [SerializeField] private AnimancerComponent character;
+    public List<AnimancerComponent> characters = new List<AnimancerComponent>();
     [SerializeField] private AnimationClip walk, death, ýdle;
 
     public void CallIdleAnim()
     {
-        character.Play(ýdle, 0.2f);
+        characters[ItemData.Instance.field.stickmanConstant].Play(ýdle, 0.2f);
     }
     public void CallDeadAnim()
     {
-        character.Play(death, 0.2f);
+        characters[ItemData.Instance.field.stickmanConstant].Play(death, 0.2f);
     }
     public void CallWalkAnim()
     {
-        character.Play(walk, 0.2f);
+        characters[ItemData.Instance.field.stickmanConstant].Play(walk, 0.2f);
+    }
+    public void SkinOpen()
+    {
+        foreach (AnimancerComponent item in characters) item.gameObject.SetActive(false);
+        characters[ItemData.Instance.field.stickmanConstant].gameObject.SetActive(true);
     }
 }

@@ -22,7 +22,7 @@ public class TapSystem : MonoSingleton<TapSystem>
     [SerializeField] GameObject _stickmanStartHitPos;
     [SerializeField] float _upperCountdown;
     [SerializeField] float _velocityPower;
-    public int objectCount;
+    public float objectCount;
 
     public void Update()
     {
@@ -39,6 +39,7 @@ public class TapSystem : MonoSingleton<TapSystem>
     public void SetNewObjectCount()
     {
         MultiplierSystem multiplierSystem = MultiplierSystem.Instance;
+        ItemData itemData = ItemData.Instance;
 
         objectCount = 1;
         for (int i = 0; i < multiplierSystem.multiplierStat.multiplierClass.multiplierTypes.Count; i++)
@@ -47,6 +48,7 @@ public class TapSystem : MonoSingleton<TapSystem>
                 if (multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[i] == MultiplierObject.MultiplierType.multiply) objectCount *= multiplierSystem.multiplierStat.multiplierClass.multiplierCount[i];
                 else objectCount += multiplierSystem.multiplierStat.multiplierClass.multiplierCount[i];
             }
+        objectCount += itemData.field.stickmanConstant + itemData.field.standartMoney;
     }
 
     private void StickmanMove()
@@ -62,6 +64,7 @@ public class TapSystem : MonoSingleton<TapSystem>
     private void StickmanAdd()
     {
         _stickmans.Add(ObjectPool.Instance.GetPooledObjectAdd(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - (_stickmans.Count + 1) * _sticmanDistance)));
+        _stickmans[_stickmans.Count - 1].GetComponent<AnimController>().SkinOpen();
     }
 
     private IEnumerator TapMechanic()

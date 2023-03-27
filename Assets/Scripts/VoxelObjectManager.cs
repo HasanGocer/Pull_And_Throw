@@ -24,17 +24,18 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
     }
 
-    public void ChildDown(GameObject stickman, int downChild)
+    public void ChildDown(GameObject stickman, float downChild)
     {
         Rigidbody rb = stickman.GetComponent<Rigidbody>();
 
+        MoneySystem.Instance.MoneyTextRevork((int)downChild);
         stickman.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         stickman.SetActive(false);
 
         int count;
-        for (int i = 0; i < downChild; i++)
+        for (int i = 0; i < (int)downChild; i++)
             if (_voxelMainObject.transform.childCount > 0)
             {
                 _voxelMainObject.transform.GetChild(count = Random.Range(0, _voxelMainObject.transform.childCount)).GetComponent<Rigidbody>().isKinematic = false;
