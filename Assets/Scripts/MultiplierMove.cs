@@ -81,8 +81,10 @@ public class MultiplierMove : MonoBehaviour
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
             multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
+
+            TapSystem.Instance.SetNewObjectCount();
         }
         else
-            transform.position = multiplierSystem.multiplierMarketPos[multiplierObject.multiplierPosCount].transform.position;
+            transform.position = multiplierSystem.multiplierMarketPos[multiplierObject.multiplierMarketCount].transform.position;
     }
 }

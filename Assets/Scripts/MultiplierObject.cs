@@ -38,16 +38,4 @@ public class MultiplierObject : MonoBehaviour
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierTypes[multiplierMarketCount] = multiplierType;
         transform.position = multiplierSystem.multiplierStatPos[multiplierMarketCount].transform.position;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Object"))
-        {
-            ObjectID objectID = other.GetComponent<ObjectID>();
-
-            if (multiplierType == MultiplierType.multiply)
-                TapSystem.Instance.objectCount *= multiplierCount;
-            else
-                TapSystem.Instance.objectCount += multiplierCount;
-        }
-    }
 }

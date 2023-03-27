@@ -40,6 +40,18 @@ public class TapSystem : MonoSingleton<TapSystem>
     {
         ObjectPool.Instance.AddObject(_OPStickmanCount, stickman);
     }
+    public void SetNewObjectCount()
+    {
+        MultiplierSystem multiplierSystem = MultiplierSystem.Instance;
+
+        objectCount = 1;
+        for (int i = 0; i < multiplierSystem.multiplierStat.multiplierClass.multiplierTypes.Count; i++)
+            if (multiplierSystem.multiplierStat.multiplierClass.multiplierBool[i])
+            {
+                if (multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[i] == MultiplierObject.MultiplierType.multiply) objectCount *= multiplierSystem.multiplierStat.multiplierClass.multiplierCount[i];
+                else objectCount += multiplierSystem.multiplierStat.multiplierClass.multiplierCount[i];
+            }
+    }
 
     private void StickmanAdd()
     {
