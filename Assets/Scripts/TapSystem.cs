@@ -76,7 +76,7 @@ public class TapSystem : MonoSingleton<TapSystem>
         rb.isKinematic = false;
         yield return new WaitForSeconds(_upperCountdown);
         stickman.transform.position = _stickmanStartHitPos.transform.position;
-        stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 90, stickman.transform.rotation.y, stickman.transform.rotation.z));
+        stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 270, stickman.transform.rotation.y, stickman.transform.rotation.z));
         objectID.rb.velocity = new Vector3(0, 0, _velocityPower);
     }
 
