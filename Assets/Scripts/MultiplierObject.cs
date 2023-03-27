@@ -13,6 +13,7 @@ public class MultiplierObject : MonoBehaviour
     public Collider multiplierCollider;
     public MultiplierType multiplierType;
     public int multiplierCount;
+    public int tempMultiplierPosCount = -1;
     public int multiplierMarketCount;
     public int multiplierPosCount = -1;
 

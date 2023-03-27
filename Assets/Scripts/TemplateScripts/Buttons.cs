@@ -122,6 +122,7 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.gameStat = GameManager.GameStat.start;
         startPanel.SetActive(false);
 
+        TapSystem.Instance.SetNewObjectCount();
         // MarketSystem.Instance.GameStart();
     }
     private IEnumerator WinButton()

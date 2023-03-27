@@ -25,7 +25,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int vibration;
     public int sound;
 
-    public void Awake()
+    public void Start()
     {
         PlayerPrefsPlacement();
         ItemData.Instance.AwakeID();
@@ -58,6 +58,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             ItemData.Instance.factor = FactorPlacementRead();
             MultiplierSystem.Instance.multiplierStat = MultiplierPlacementRead();
+            MultiplierSystem.Instance.ObjectPlacement();
         }
         else
         {

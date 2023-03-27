@@ -41,14 +41,14 @@ public class TapSystem : MonoSingleton<TapSystem>
         MultiplierSystem multiplierSystem = MultiplierSystem.Instance;
         ItemData itemData = ItemData.Instance;
 
-        objectCount = 1;
+        objectCount = itemData.field.standartMoney;
         for (int i = 0; i < multiplierSystem.multiplierStat.multiplierClass.multiplierTypes.Count; i++)
             if (multiplierSystem.multiplierStat.multiplierClass.multiplierBool[i])
             {
                 if (multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[i] == MultiplierObject.MultiplierType.multiply) objectCount *= multiplierSystem.multiplierStat.multiplierClass.multiplierCount[i];
                 else objectCount += multiplierSystem.multiplierStat.multiplierClass.multiplierCount[i];
             }
-        objectCount += itemData.field.stickmanConstant + itemData.field.standartMoney;
+        objectCount += itemData.field.stickmanConstant;
     }
 
     private void StickmanMove()

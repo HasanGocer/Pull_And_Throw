@@ -46,7 +46,7 @@ public class MultiplierMove : MonoBehaviour
                                 Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100));
                                 Vector3 direction = worldFromMousePos - Camera.main.transform.position;
                                 RaycastHit hit;
-                                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 100f))
+                                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 100f, 5))
                                 {
                                     timer = 0;
                                     transform.position = Vector3.Lerp(transform.position, hit.transform.position, Time.deltaTime);
@@ -74,15 +74,27 @@ public class MultiplierMove : MonoBehaviour
         rb.isKinematic = true;
         multiplierObject.multiplierCollider.isTrigger = true;
 
-        if (multiplierObject.multiplierPosCount != -1)
+        if (multiplierObject.tempMultiplierPosCount != -1)
+        {
+            transform.position = multiplierSystem.multiplierStatPos[multiplierObject.tempMultiplierPosCount].transform.position;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierCount;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierType;
+            multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
+
+            TapSystem.Instance.SetNewObjectCount();
+            GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
+        }
+        else if (multiplierObject.multiplierPosCount != -1)
         {
             transform.position = multiplierSystem.multiplierStatPos[multiplierObject.multiplierPosCount].transform.position;
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
-            multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
+            multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
 
             TapSystem.Instance.SetNewObjectCount();
+            GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
         }
         else
             transform.position = multiplierSystem.multiplierMarketPos[multiplierObject.multiplierMarketCount].transform.position;

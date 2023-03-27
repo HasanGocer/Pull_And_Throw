@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 {
+    [System.Serializable]
     public class MultiplierClass
     {
         public List<bool> multiplierBool = new List<bool>();
         public List<int> multiplierCount = new List<int>();
         public List<MultiplierObject.MultiplierType> multiplierTypes = new List<MultiplierObject.MultiplierType>();
     }
+    [System.Serializable]
     public class MultiplierStat
     {
         public MultiplierClass multiplierClass = new MultiplierClass();
