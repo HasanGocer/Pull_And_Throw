@@ -2953,7 +2953,7 @@ MonoBehaviour:
     stickmanConstant: 0
     addedMultiplier: 0
     standartMoney: 1
-    shotCountdown: 1
+    shotCountdown: 3
   factor:
     stickmanConstant: 1
     addedMultiplier: 1
