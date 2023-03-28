@@ -32,9 +32,12 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
             {
                 GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount, multiplierMarketPos[i].transform.position);
                 MultiplierObject multiplierObject = obj.GetComponent<MultiplierObject>();
+
                 multiplierObject.multiplierCount = multiplierStat.multiplierMarketClass.multiplierCount[i];
                 multiplierObject.multiplierMarketCount = i;
                 multiplierObject.multiplierType = multiplierStat.multiplierMarketClass.multiplierTypes[i];
+
+                multiplierObject.CountTextReWrite();
             }
 
         for (int i = 0; i < multiplierStatPos.Count; i++)
@@ -42,10 +45,12 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
             {
                 GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount, multiplierStatPos[i].transform.position);
                 MultiplierObject multiplierObject = obj.GetComponent<MultiplierObject>();
+
                 multiplierObject.multiplierCount = multiplierStat.multiplierClass.multiplierCount[i];
                 multiplierObject.multiplierPosCount = i;
                 multiplierObject.multiplierType = multiplierStat.multiplierClass.multiplierTypes[i];
 
+                multiplierObject.CountTextReWrite();
             }
     }
     public bool MarketIsFree()
@@ -61,5 +66,9 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
     {
         GameObject multiplier = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount);
         multiplier.GetComponent<MultiplierObject>().StartMultiplierPlacement();
+    }
+    public void ObjectBackAdded(GameObject multiplier)
+    {
+        ObjectPool.Instance.AddObject(_OPMultiplierObjectCount, multiplier);
     }
 }

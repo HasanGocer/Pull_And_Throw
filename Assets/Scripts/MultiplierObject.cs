@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MultiplierObject : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MultiplierObject : MonoBehaviour
     public int tempMultiplierPosCount = -1;
     public int multiplierMarketCount;
     public int multiplierPosCount = -1;
+    [SerializeField] TMP_Text countText;
 
     public void StartMultiplierPlacement()
     {
@@ -39,6 +41,14 @@ public class MultiplierObject : MonoBehaviour
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierTypes[multiplierMarketCount] = multiplierType;
         transform.position = multiplierSystem.multiplierMarketPos[multiplierMarketCount].transform.position;
 
+        CountTextReWrite();
         GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
+    }
+    public void CountTextReWrite()
+    {
+        if (multiplierType == MultiplierType.plus)
+            countText.text = "+ " + multiplierCount;
+        else
+            countText.text = "x " + multiplierCount;
     }
 }
