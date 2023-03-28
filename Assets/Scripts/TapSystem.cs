@@ -26,7 +26,7 @@ public class TapSystem : MonoSingleton<TapSystem>
 
     public void Update()
     {
-        if (GameManager.Instance.gameStat == GameManager.GameStat.start)
+        if (GameManager.Instance.gameStat == GameManager.GameStat.start && !MultiplierSystem.Instance.isMove)
             if (Input.touchCount > 0)
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                     StartCoroutine(TapMechanic());

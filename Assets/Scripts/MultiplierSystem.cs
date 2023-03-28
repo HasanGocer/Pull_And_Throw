@@ -20,6 +20,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
     [SerializeField] int _OPMultiplierObjectCount;
     public int multiplierMaxCount, plusMaxCount;
+    [HideInInspector] public bool isMove;
     public MultiplierStat multiplierStat = new MultiplierStat();
     public List<GameObject> multiplierMarketPos = new List<GameObject>();
     public List<GameObject> multiplierStatPos = new List<GameObject>();

@@ -26,6 +26,7 @@ public class MultiplierMove : MonoBehaviour
         touchStartedOnPlayer = true;
         multiplierObject.multiplierCollider.isTrigger = false;
         finishTime = true;
+        MultiplierSystem.Instance.isMove = true;
     }
 
     private void Update()
@@ -50,7 +51,7 @@ public class MultiplierMove : MonoBehaviour
                                 Debug.DrawLine(Camera.main.transform.position, direction, Color.black, 1);
                                 if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 200f))
                                 {
-                                    transform.position = Vector3.Lerp(transform.position, new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z), 10);
+                                    transform.position = Vector3.Lerp(transform.position, new Vector3(hit.point.x, transform.position.y, hit.point.z), 10);
                                     timer = 0;
                                 }
                             }
@@ -66,6 +67,7 @@ public class MultiplierMove : MonoBehaviour
         }
         else if (GameManager.Instance.gameStat == GameManager.GameStat.start && finishTime)
             FinishMove();
+        MultiplierSystem.Instance.isMove = false;
     }
 
     void FinishMove()
