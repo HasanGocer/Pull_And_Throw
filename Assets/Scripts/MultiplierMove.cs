@@ -50,7 +50,7 @@ public class MultiplierMove : MonoBehaviour
                                 Debug.DrawLine(Camera.main.transform.position, direction, Color.black, 1);
                                 if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 200f))
                                 {
-                                    transform.position = Vector3.Lerp(transform.position, new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z), timer);
+                                    transform.position = Vector3.Lerp(transform.position, new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z), 10);
                                     timer = 0;
                                 }
                             }
@@ -76,7 +76,7 @@ public class MultiplierMove : MonoBehaviour
         rb.isKinematic = true;
         multiplierObject.multiplierCollider.isTrigger = true;
 
-        if (multiplierObject.tempMultiplierPosCount != -1)
+        if (multiplierObject.tempMultiplierPosCount != -1 && !multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount])
         {
             transform.position = multiplierSystem.multiplierStatPos[multiplierObject.tempMultiplierPosCount].transform.position;
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;

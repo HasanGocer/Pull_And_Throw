@@ -1259,7 +1259,6 @@ MonoBehaviour:
   voxelObjectCount: 0
   voxelObjectChildCount: 0
   _voxelObjectPos: {fileID: 1651701295}
-  _downPos: {fileID: 0}
 --- !u!1 &588939969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2954,22 +2953,22 @@ MonoBehaviour:
     stickmanConstant: 0
     addedMultiplier: 0
     standartMoney: 1
-    shotCountdown: 0
+    shotCountdown: 1
   factor:
     stickmanConstant: 1
     addedMultiplier: 1
     standartMoney: 1
-    shotCountdown: 0
+    shotCountdown: 1
   constant:
     stickmanConstant: 1
     addedMultiplier: 1
     standartMoney: 0.1
-    shotCountdown: 0
+    shotCountdown: 0.04
   maxFactor:
     stickmanConstant: 10
     addedMultiplier: 20
     standartMoney: 20
-    shotCountdown: 0
+    shotCountdown: 20
   max:
     stickmanConstant: 0
     addedMultiplier: 0
@@ -2979,7 +2978,7 @@ MonoBehaviour:
     stickmanConstant: 100
     addedMultiplier: 100
     standartMoney: 100
-    shotCountdown: 0
+    shotCountdown: 100
 --- !u!1001 &1772594919
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     public int voxelObjectCount, voxelObjectChildCount;
     GameObject _voxelMainObject;
     GameObject _thrash;
-    [SerializeField] GameObject _voxelObjectPos, _downPos;
+    [SerializeField] GameObject _voxelObjectPos;
 
     public void VoxelObjectManagerStart()
     {

@@ -37,7 +37,7 @@ public class MultiplierObject : MonoBehaviour
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierMarketCount] = true;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierCount[multiplierMarketCount] = multiplierCount;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierTypes[multiplierMarketCount] = multiplierType;
-        transform.position = multiplierSystem.multiplierStatPos[multiplierMarketCount].transform.position;
+        transform.position = multiplierSystem.multiplierMarketPos[multiplierMarketCount].transform.position;
 
         GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
     }
