@@ -54,10 +54,11 @@ public class UpperManager : MonoSingleton<UpperManager>
         GameManager gameManager = GameManager.Instance;
         ItemData itemData = ItemData.Instance;
 
-        if (itemData.fieldPrice.addedMultiplier <= gameManager.money && itemData.factor.addedMultiplier < itemData.maxFactor.addedMultiplier)
+        if (itemData.fieldPrice.addedMultiplier <= gameManager.money && itemData.factor.addedMultiplier < itemData.maxFactor.addedMultiplier && MultiplierSystem.Instance.MarketIsFree())
         {
             MoneySystem.Instance.MoneyTextRevork(itemData.fieldPrice.addedMultiplier);
             itemData.SetAddedMultiplier();
+            MultiplierSystem.Instance.NewObject();
 
             _addedMultiplierLevel.text = "level " + itemData.factor.addedMultiplier;
             _addedMultiplierMoney.text = itemData.fieldPrice.addedMultiplier.ToString();

@@ -37,6 +37,7 @@ public class MultiplierMove : MonoBehaviour
             {
 
                 touchFeyz = Input.GetTouch(0);
+
                 switch (touchFeyz.phase)
                 {
                     case TouchPhase.Moved:
@@ -46,10 +47,11 @@ public class MultiplierMove : MonoBehaviour
                                 Vector3 worldFromMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100));
                                 Vector3 direction = worldFromMousePos - Camera.main.transform.position;
                                 RaycastHit hit;
-                                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 100f, 5))
+                                Debug.DrawLine(Camera.main.transform.position, direction, Color.black, 1);
+                                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 200f))
                                 {
+                                    transform.position = Vector3.Lerp(transform.position, new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z), timer);
                                     timer = 0;
-                                    transform.position = Vector3.Lerp(transform.position, hit.transform.position, Time.deltaTime);
                                 }
                             }
                             break;
@@ -80,7 +82,13 @@ public class MultiplierMove : MonoBehaviour
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierType;
-            multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
+            if (multiplierObject.multiplierPosCount != -1)
+            {
+                multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
+                if (multiplierObject.multiplierMarketCount != -1)
+                    multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
+            }
+            multiplierObject.multiplierMarketCount = -1;
 
             TapSystem.Instance.SetNewObjectCount();
             GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);

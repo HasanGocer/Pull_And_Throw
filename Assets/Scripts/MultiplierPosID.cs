@@ -10,9 +10,4 @@ public class MultiplierPosID : MonoBehaviour
         if (other.CompareTag("Multiplier"))
             other.GetComponent<MultiplierObject>().tempMultiplierPosCount = posCount;
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Multiplier"))
-            other.GetComponent<MultiplierObject>().tempMultiplierPosCount = -1;
-    }
 }

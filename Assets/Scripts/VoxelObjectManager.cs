@@ -8,6 +8,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     [SerializeField] List<GameObject> _VoxelObject = new List<GameObject>();
     public int voxelObjectCount, voxelObjectChildCount;
     GameObject _voxelMainObject;
+    GameObject _thrash;
     [SerializeField] GameObject _voxelObjectPos, _downPos;
 
     public void VoxelObjectManagerStart()
@@ -20,6 +21,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
 
     public void StartObjectPlacement()
     {
+        _thrash = new GameObject("thrash");
         _voxelMainObject = Instantiate(_VoxelObject[voxelObjectCount], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
     }
@@ -39,8 +41,15 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
             if (_voxelMainObject.transform.childCount > 0)
             {
                 _voxelMainObject.transform.GetChild(count = Random.Range(0, _voxelMainObject.transform.childCount)).GetComponent<Rigidbody>().isKinematic = false;
-                _voxelMainObject.transform.GetChild(count).SetParent(null);
+                _voxelMainObject.transform.GetChild(count).SetParent(_thrash.transform);
             }
+            else NewVoxel();
     }
-
+    private void NewVoxel()
+    {
+        _thrash.SetActive(false);
+        voxelObjectCount++;
+        VoxelObjectManagerStart();
+        StartObjectPlacement();
+    }
 }

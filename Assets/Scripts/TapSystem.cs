@@ -24,6 +24,11 @@ public class TapSystem : MonoSingleton<TapSystem>
     [SerializeField] float _velocityPower;
     public float objectCount;
 
+    [Header("AutoTap_Field")]
+    [Space(10)]
+
+    [SerializeField] float _autoShotCountdown;
+
     public void Update()
     {
         if (GameManager.Instance.gameStat == GameManager.GameStat.start)
@@ -35,6 +40,18 @@ public class TapSystem : MonoSingleton<TapSystem>
     {
         for (int i = 0; i < _stickmanCount; i++)
             _stickmans.Add(ObjectPool.Instance.GetPooledObject(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - i * _sticmanDistance)));
+    }
+    public IEnumerator AuotShot()
+    {
+        while (true)
+        {
+            if (GameManager.Instance.gameStat == GameManager.GameStat.start)
+            {
+                StartCoroutine(TapMechanic());
+                yield return new WaitForSeconds(_autoShotCountdown);
+            }
+            yield return null;
+        }
     }
     public void SetNewObjectCount()
     {

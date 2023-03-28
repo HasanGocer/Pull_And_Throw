@@ -47,4 +47,18 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
             }
     }
+    public bool MarketIsFree()
+    {
+        bool isFree = false;
+
+        for (int i = 0; i < multiplierStat.multiplierMarketClass.multiplierBool.Count; i++)
+            if (!multiplierStat.multiplierMarketClass.multiplierBool[i]) isFree = true;
+
+        return isFree;
+    }
+    public void NewObject()
+    {
+        GameObject multiplier = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount);
+        multiplier.GetComponent<MultiplierObject>().StartMultiplierPlacement();
+    }
 }
