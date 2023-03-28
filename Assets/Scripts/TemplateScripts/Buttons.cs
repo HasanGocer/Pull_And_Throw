@@ -66,6 +66,7 @@ public class Buttons : MonoSingleton<Buttons>
         _globalPanel.SetActive(true);
         startPanel.SetActive(true);
 
+        UpperManager.Instance.UpperManagerStart();
         VoxelObjectManager.Instance.VoxelObjectManagerStart();
         VoxelObjectManager.Instance.StartObjectPlacement();
         TapSystem.Instance.StickmanSort();
@@ -124,6 +125,7 @@ public class Buttons : MonoSingleton<Buttons>
 
         StartCoroutine(TapSystem.Instance.AuotShot());
         TapSystem.Instance.SetNewObjectCount();
+        UpperManager.Instance.PanelOn();
         // MarketSystem.Instance.GameStart();
     }
     private IEnumerator WinButton()

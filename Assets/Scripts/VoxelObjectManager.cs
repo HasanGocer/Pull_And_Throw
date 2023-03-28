@@ -22,7 +22,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     public void StartObjectPlacement()
     {
         _thrash = new GameObject("thrash");
-        _voxelMainObject = Instantiate(_VoxelObject[voxelObjectCount], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
+        _voxelMainObject = Instantiate(_VoxelObject[voxelObjectCount % _VoxelObject.Count], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
     }
 

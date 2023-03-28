@@ -8,7 +8,7 @@ public class ItemData : MonoSingleton<ItemData>
     public class Field
     {
         public int stickmanConstant, addedMultiplier;
-        public float standartMoney;
+        public float standartMoney, shotCountdown;
     }
 
     public Field field;
@@ -27,6 +27,8 @@ public class ItemData : MonoSingleton<ItemData>
         fieldPrice.addedMultiplier = fieldPrice.addedMultiplier * factor.addedMultiplier;
         field.standartMoney = standart.standartMoney + (factor.standartMoney * constant.standartMoney);
         fieldPrice.standartMoney = fieldPrice.standartMoney * factor.standartMoney;
+        field.shotCountdown = standart.shotCountdown - (factor.shotCountdown * constant.shotCountdown);
+        fieldPrice.shotCountdown = fieldPrice.shotCountdown * factor.shotCountdown;
 
         /*
          field.objectCount = standart.objectCount + (factor.objectCount * constant.objectCount);
@@ -52,6 +54,13 @@ public class ItemData : MonoSingleton<ItemData>
             field.standartMoney = standart.standartMoney + (factor.standartMoney * constant.standartMoney);
             fieldPrice.standartMoney = fieldPrice.standartMoney / (factor.standartMoney - 1);
             fieldPrice.standartMoney = fieldPrice.standartMoney * factor.standartMoney;
+        }
+        if (factor.shotCountdown > maxFactor.shotCountdown)
+        {
+            factor.shotCountdown = maxFactor.shotCountdown;
+            field.shotCountdown = standart.shotCountdown - (factor.shotCountdown * constant.shotCountdown);
+            fieldPrice.shotCountdown = fieldPrice.shotCountdown / (factor.shotCountdown - 1);
+            fieldPrice.shotCountdown = fieldPrice.shotCountdown * factor.shotCountdown;
         }
 
 
@@ -117,6 +126,24 @@ public class ItemData : MonoSingleton<ItemData>
             field.standartMoney = standart.standartMoney + (factor.standartMoney * constant.standartMoney);
             fieldPrice.standartMoney = fieldPrice.standartMoney / (factor.standartMoney - 1);
             fieldPrice.standartMoney = fieldPrice.standartMoney * factor.standartMoney;
+        }
+
+        GameManager.Instance.FactorPlacementWrite(factor);
+    }
+    public void SetShotCountdown()
+    {
+        factor.shotCountdown++;
+
+        field.shotCountdown = standart.shotCountdown - (factor.shotCountdown * constant.shotCountdown);
+        fieldPrice.shotCountdown = fieldPrice.shotCountdown / (factor.shotCountdown - 1);
+        fieldPrice.shotCountdown = fieldPrice.shotCountdown * factor.shotCountdown;
+
+        if (factor.shotCountdown > maxFactor.shotCountdown)
+        {
+            factor.shotCountdown = maxFactor.shotCountdown;
+            field.shotCountdown = standart.shotCountdown - (factor.shotCountdown * constant.shotCountdown);
+            fieldPrice.shotCountdown = fieldPrice.shotCountdown / (factor.shotCountdown - 1);
+            fieldPrice.shotCountdown = fieldPrice.shotCountdown * factor.shotCountdown;
         }
 
         GameManager.Instance.FactorPlacementWrite(factor);

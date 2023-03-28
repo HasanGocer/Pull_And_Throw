@@ -24,11 +24,6 @@ public class TapSystem : MonoSingleton<TapSystem>
     [SerializeField] float _velocityPower;
     public float objectCount;
 
-    [Header("AutoTap_Field")]
-    [Space(10)]
-
-    [SerializeField] float _autoShotCountdown;
-
     public void Update()
     {
         if (GameManager.Instance.gameStat == GameManager.GameStat.start)
@@ -48,7 +43,7 @@ public class TapSystem : MonoSingleton<TapSystem>
             if (GameManager.Instance.gameStat == GameManager.GameStat.start)
             {
                 StartCoroutine(TapMechanic());
-                yield return new WaitForSeconds(_autoShotCountdown);
+                yield return new WaitForSeconds(ItemData.Instance.field.shotCountdown);
             }
             yield return null;
         }

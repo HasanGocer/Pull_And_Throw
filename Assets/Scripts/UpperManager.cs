@@ -6,21 +6,31 @@ using TMPro;
 
 public class UpperManager : MonoSingleton<UpperManager>
 {
-    [SerializeField] Button _stickmanUpperButton, _addedMultiplierButton, _standartMoneyUpperButton;
-    [SerializeField] TMP_Text _stickmanUpperLevel, _addedMultiplierLevel, _standartMoneyUpperLevel;
-    [SerializeField] TMP_Text _StickmanUpperMoney, _addedMultiplierMoney, _StandartMoneyUpperMoney;
+    [SerializeField] GameObject _upgradePanel;
+    [SerializeField] Button _stickmanUpperButton, _addedMultiplierButton, _shotTimeButton;
+    [SerializeField] TMP_Text _stickmanUpperLevel, _addedMultiplierLevel, _shotTimeLevel;
+    [SerializeField] TMP_Text _StickmanUpperMoney, _addedMultiplierMoney, _shotTimeMoney;
 
     public void UpperManagerStart()
     {
         ButtonPlacement();
         TextPlacement();
+        PanelOff();
+    }
+    public void PanelOn()
+    {
+        _upgradePanel.SetActive(true);
     }
 
+    private void PanelOff()
+    {
+        _upgradePanel.SetActive(false);
+    }
     private void ButtonPlacement()
     {
         _stickmanUpperButton.onClick.AddListener(StickmanUpperButton);
         _addedMultiplierButton.onClick.AddListener(AddedMultiplierButton);
-        _standartMoneyUpperButton.onClick.AddListener(StandartMoneyUpperButton);
+        _shotTimeButton.onClick.AddListener(ShotTimeButton);
     }
     private void TextPlacement()
     {
@@ -30,8 +40,8 @@ public class UpperManager : MonoSingleton<UpperManager>
         _StickmanUpperMoney.text = itemData.fieldPrice.stickmanConstant.ToString();
         _addedMultiplierLevel.text = "level " + itemData.factor.addedMultiplier;
         _addedMultiplierMoney.text = itemData.fieldPrice.addedMultiplier.ToString();
-        _standartMoneyUpperLevel.text = "level " + itemData.factor.standartMoney;
-        _StandartMoneyUpperMoney.text = itemData.fieldPrice.standartMoney.ToString();
+        _shotTimeLevel.text = "level " + itemData.factor.standartMoney;
+        _shotTimeMoney.text = itemData.fieldPrice.standartMoney.ToString();
     }
 
     private void StickmanUpperButton()
@@ -64,19 +74,18 @@ public class UpperManager : MonoSingleton<UpperManager>
             _addedMultiplierMoney.text = itemData.fieldPrice.addedMultiplier.ToString();
         }
     }
-    private void StandartMoneyUpperButton()
+    private void ShotTimeButton()
     {
         GameManager gameManager = GameManager.Instance;
         ItemData itemData = ItemData.Instance;
 
-        if (itemData.fieldPrice.standartMoney <= gameManager.money && itemData.factor.standartMoney < itemData.maxFactor.standartMoney)
+        if (itemData.fieldPrice.shotCountdown <= gameManager.money && itemData.factor.shotCountdown < itemData.maxFactor.shotCountdown)
         {
-            MoneySystem.Instance.MoneyTextRevork((int)itemData.fieldPrice.standartMoney);
-            itemData.SetStandartMoney();
-            TapSystem.Instance.SetNewObjectCount();
+            MoneySystem.Instance.MoneyTextRevork((int)itemData.fieldPrice.shotCountdown);
+            itemData.SetShotCountdown();
 
-            _standartMoneyUpperLevel.text = "level " + itemData.factor.standartMoney;
-            _StandartMoneyUpperMoney.text = itemData.fieldPrice.standartMoney.ToString();
+            _shotTimeLevel.text = "level " + itemData.factor.shotCountdown;
+            _shotTimeMoney.text = itemData.fieldPrice.shotCountdown.ToString();
         }
     }
 }
