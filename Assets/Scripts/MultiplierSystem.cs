@@ -35,6 +35,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
                 multiplierObject.multiplierCount = multiplierStat.multiplierMarketClass.multiplierCount[i];
                 multiplierObject.multiplierMarketCount = i;
+                multiplierObject.multiplierPosCount = -1;
                 multiplierObject.multiplierType = multiplierStat.multiplierMarketClass.multiplierTypes[i];
 
                 multiplierObject.CountTextReWrite();
@@ -48,6 +49,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
                 multiplierObject.multiplierCount = multiplierStat.multiplierClass.multiplierCount[i];
                 multiplierObject.multiplierPosCount = i;
+                multiplierObject.multiplierMarketCount = -1;
                 multiplierObject.multiplierType = multiplierStat.multiplierClass.multiplierTypes[i];
 
                 multiplierObject.CountTextReWrite();

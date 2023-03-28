@@ -80,21 +80,22 @@ public class MultiplierMove : MonoBehaviour
 
         if (multiplierObject.tempMultiplierPosCount != -1 && !multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount])
         {
-            transform.position = multiplierSystem.multiplierStatPos[multiplierObject.tempMultiplierPosCount].transform.position;
-            multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;
-            multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierCount;
-            multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierType;
-
             if (multiplierObject.multiplierPosCount != -1)
             {
                 multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
                 multiplierObject.multiplierPosCount = -1;
             }
-            else if (multiplierObject.multiplierMarketCount != -1)
+            if (multiplierObject.multiplierMarketCount != -1)
             {
                 multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
                 multiplierObject.multiplierMarketCount = -1;
             }
+
+            multiplierObject.multiplierPosCount = multiplierObject.tempMultiplierPosCount;
+            transform.position = multiplierSystem.multiplierStatPos[multiplierObject.tempMultiplierPosCount].transform.position;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierCount;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierType;
 
             TapSystem.Instance.SetNewObjectCount();
             GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
@@ -105,8 +106,11 @@ public class MultiplierMove : MonoBehaviour
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
-            multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
-
+            if (multiplierObject.multiplierMarketCount != -1)
+            {
+                multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
+                multiplierObject.multiplierMarketCount = -1;
+            }
             TapSystem.Instance.SetNewObjectCount();
             GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
         }
