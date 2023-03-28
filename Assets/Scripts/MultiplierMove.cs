@@ -84,15 +84,11 @@ public class MultiplierMove : MonoBehaviour
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierType;
+
             if (multiplierObject.multiplierPosCount != -1)
             {
                 multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = false;
                 multiplierObject.multiplierPosCount = -1;
-                if (multiplierObject.multiplierMarketCount != -1)
-                {
-                    multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierObject.multiplierMarketCount] = false;
-                    multiplierObject.multiplierMarketCount = -1;
-                }
             }
             else if (multiplierObject.multiplierMarketCount != -1)
             {

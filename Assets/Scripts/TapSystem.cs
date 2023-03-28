@@ -14,6 +14,7 @@ public class TapSystem : MonoSingleton<TapSystem>
     [SerializeField] GameObject _stickmanPos;
     [SerializeField] float _sticmanDistance;
     [SerializeField] int _stickmanCount;
+    bool isTap;
 
     [Header("Tap_Field")]
     [Space(10)]
@@ -81,18 +82,25 @@ public class TapSystem : MonoSingleton<TapSystem>
 
     private IEnumerator TapMechanic()
     {
-        GameObject stickman = StickmanJump();
-        ObjectID objectID = stickman.GetComponent<ObjectID>();
-        Rigidbody rb = stickman.GetComponent<Rigidbody>();
+        if (!isTap)
+        {
+            isTap = true;
 
-        StickmanAdd();
-        StickmanMove();
+            GameObject stickman = StickmanJump();
+            ObjectID objectID = stickman.GetComponent<ObjectID>();
+            Rigidbody rb = stickman.GetComponent<Rigidbody>();
 
-        rb.isKinematic = false;
-        yield return new WaitForSeconds(_upperCountdown);
-        stickman.transform.position = _stickmanStartHitPos.transform.position;
-        stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 270, stickman.transform.rotation.y, stickman.transform.rotation.z));
-        objectID.rb.velocity = new Vector3(0, 0, _velocityPower);
+            StickmanAdd();
+            StickmanMove();
+
+            rb.isKinematic = false;
+            yield return new WaitForSeconds(_upperCountdown);
+            stickman.transform.position = _stickmanStartHitPos.transform.position;
+            stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 270, stickman.transform.rotation.y, stickman.transform.rotation.z));
+            objectID.rb.velocity = new Vector3(0, 0, _velocityPower);
+
+            isTap = false;
+        }
     }
 
     private GameObject StickmanJump()
