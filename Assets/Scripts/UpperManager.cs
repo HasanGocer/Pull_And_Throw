@@ -35,13 +35,39 @@ public class UpperManager : MonoSingleton<UpperManager>
     private void TextPlacement()
     {
         ItemData itemData = ItemData.Instance;
+        if (itemData.factor.stickmanConstant > itemData.maxFactor.stickmanConstant)
+        {
+            _stickmanUpperLevel.text = "Max Level ";
+            _StickmanUpperMoney.text = "Max Level ";
+        }
+        else
+        {
+            _stickmanUpperLevel.text = "level " + itemData.factor.stickmanConstant;
+            _StickmanUpperMoney.text = itemData.fieldPrice.stickmanConstant.ToString();
+        }
 
-        _stickmanUpperLevel.text = "level " + itemData.factor.stickmanConstant;
-        _StickmanUpperMoney.text = itemData.fieldPrice.stickmanConstant.ToString();
-        _addedMultiplierLevel.text = "level " + itemData.factor.addedMultiplier;
-        _addedMultiplierMoney.text = itemData.fieldPrice.addedMultiplier.ToString();
-        _shotTimeLevel.text = "level " + itemData.factor.standartMoney;
-        _shotTimeMoney.text = itemData.fieldPrice.standartMoney.ToString();
+        if (itemData.factor.addedMultiplier > itemData.maxFactor.addedMultiplier)
+        {
+            _addedMultiplierLevel.text = "Max Level ";
+            _addedMultiplierMoney.text = "Max Level ";
+        }
+        else
+        {
+            _addedMultiplierLevel.text = "level " + itemData.factor.addedMultiplier;
+            _addedMultiplierMoney.text = itemData.fieldPrice.addedMultiplier.ToString();
+        }
+
+        if (itemData.factor.addedMultiplier > itemData.maxFactor.addedMultiplier)
+        {
+            _shotTimeLevel.text = "Max Level ";
+            _shotTimeMoney.text = "Max Level ";
+        }
+        else
+        {
+            _shotTimeLevel.text = "level " + itemData.factor.standartMoney;
+            _shotTimeMoney.text = itemData.fieldPrice.standartMoney.ToString();
+        }
+
     }
 
     private void StickmanUpperButton()
