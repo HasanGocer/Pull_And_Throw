@@ -38,6 +38,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
                 multiplierObject.multiplierPosCount = -1;
                 multiplierObject.multiplierType = multiplierStat.multiplierMarketClass.multiplierTypes[i];
 
+                MaterialSystem.Instance.PipeDraw(ref obj);
                 multiplierObject.CountTextReWrite();
             }
 
@@ -52,6 +53,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
                 multiplierObject.multiplierMarketCount = -1;
                 multiplierObject.multiplierType = multiplierStat.multiplierClass.multiplierTypes[i];
 
+                MaterialSystem.Instance.PipeDraw(ref obj);
                 multiplierObject.CountTextReWrite();
             }
     }
@@ -67,6 +69,8 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
     public void NewObject()
     {
         GameObject multiplier = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount);
+
+        MaterialSystem.Instance.PipeDraw(ref multiplier);
         multiplier.GetComponent<MultiplierObject>().StartMultiplierPlacement();
     }
     public void ObjectBackAdded(GameObject multiplier)

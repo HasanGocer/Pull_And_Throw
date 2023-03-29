@@ -51,7 +51,7 @@ public class UpperManager : MonoSingleton<UpperManager>
 
         if (itemData.fieldPrice.stickmanConstant <= gameManager.money && itemData.factor.stickmanConstant < itemData.maxFactor.stickmanConstant)
         {
-            MoneySystem.Instance.MoneyTextRevork(itemData.fieldPrice.stickmanConstant);
+            MoneySystem.Instance.MoneyTextRevork(-itemData.fieldPrice.stickmanConstant);
             itemData.SetStickmanConstant();
             TapSystem.Instance.SetNewObjectCount();
 
@@ -66,7 +66,7 @@ public class UpperManager : MonoSingleton<UpperManager>
 
         if (itemData.fieldPrice.addedMultiplier <= gameManager.money && itemData.factor.addedMultiplier < itemData.maxFactor.addedMultiplier && MultiplierSystem.Instance.MarketIsFree())
         {
-            MoneySystem.Instance.MoneyTextRevork(itemData.fieldPrice.addedMultiplier);
+            MoneySystem.Instance.MoneyTextRevork(-itemData.fieldPrice.addedMultiplier);
             itemData.SetAddedMultiplier();
             MultiplierSystem.Instance.NewObject();
 
@@ -81,7 +81,7 @@ public class UpperManager : MonoSingleton<UpperManager>
 
         if (itemData.fieldPrice.shotCountdown <= gameManager.money && itemData.factor.shotCountdown < itemData.maxFactor.shotCountdown)
         {
-            MoneySystem.Instance.MoneyTextRevork((int)itemData.fieldPrice.shotCountdown);
+            MoneySystem.Instance.MoneyTextRevork((int)-itemData.fieldPrice.shotCountdown);
             itemData.SetShotCountdown();
 
             _shotTimeLevel.text = "level " + itemData.factor.shotCountdown;

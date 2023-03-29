@@ -24,7 +24,6 @@ public class MultiplierMove : MonoBehaviour
     {
         rb.isKinematic = false;
         touchStartedOnPlayer = true;
-        multiplierObject.multiplierCollider.isTrigger = false;
         finishTime = true;
         MultiplierSystem.Instance.isMove = true;
     }
@@ -76,7 +75,6 @@ public class MultiplierMove : MonoBehaviour
 
         finishTime = false;
         rb.isKinematic = true;
-        multiplierObject.multiplierCollider.isTrigger = true;
 
         if (multiplierObject.tempMultiplierPosCount != -1 && !multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount])
         {
