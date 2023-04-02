@@ -7,6 +7,7 @@ public class AnimController : MonoBehaviour
 {
     public List<AnimancerComponent> characters = new List<AnimancerComponent>();
     [SerializeField] private AnimationClip walk, death, ýdle;
+    [SerializeField] GameObject _fire;
 
     public void CallIdleAnim()
     {
@@ -24,5 +25,10 @@ public class AnimController : MonoBehaviour
     {
         foreach (AnimancerComponent item in characters) item.gameObject.SetActive(false);
         characters[ItemData.Instance.field.stickmanConstant].gameObject.SetActive(true);
+        _fire.SetActive(false);
+    }
+    public void FireOpen()
+    {
+        if (ItemData.Instance.field.stickmanConstant > 4) _fire.SetActive(true);
     }
 }

@@ -35,7 +35,10 @@ public class TapSystem : MonoSingleton<TapSystem>
     public void StickmanSort()
     {
         for (int i = 0; i < _stickmanCount; i++)
+        {
             _stickmans.Add(ObjectPool.Instance.GetPooledObject(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - i * _sticmanDistance)));
+            _stickmans[_stickmans.Count - 1].GetComponent<AnimController>().SkinOpen();
+        }
     }
     public IEnumerator AuotShot()
     {
