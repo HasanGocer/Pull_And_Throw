@@ -42,7 +42,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     private void NewVoxel()
     {
         _thrash.SetActive(false);
-        GameManager.Instance.level++;
+        GameManager.Instance.SetLevel();
         StartObjectPlacement();
     }
 }
