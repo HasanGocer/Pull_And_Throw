@@ -67,8 +67,7 @@ public class Buttons : MonoSingleton<Buttons>
         startPanel.SetActive(true);
 
         UpperManager.Instance.UpperManagerStart();
-        VoxelObjectManager.Instance.VoxelObjectManagerStart();
-        VoxelObjectManager.Instance.StartObjectPlacement();
+        VoxelObjectManager.Instance.StartObjectPlacement(); 
         TapSystem.Instance.StickmanSort();
     }
     public IEnumerator NoThanxOnActive()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1307,7 +1307,6 @@ MonoBehaviour:
   _VoxelObject:
   - {fileID: 6402054265715297604, guid: 7dd47e34fd4751b46858425e19942ff6, type: 3}
   - {fileID: 1793294079972262149, guid: b0ad77305fe944d4383c20b04ff370b5, type: 3}
-  voxelObjectCount: 0
   voxelObjectChildCount: 0
   _voxelObjectPos: {fileID: 1651701295}
 --- !u!114 &531474228
@@ -3359,7 +3358,7 @@ PrefabInstance:
     - target: {fileID: 6399296221066221310, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6399296222354165870, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}

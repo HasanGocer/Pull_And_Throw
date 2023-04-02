@@ -6,29 +6,23 @@ using DG.Tweening;
 public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
 {
     [SerializeField] List<GameObject> _VoxelObject = new List<GameObject>();
-    public int voxelObjectCount, voxelObjectChildCount;
+    public int voxelObjectChildCount;
     GameObject _voxelMainObject;
     GameObject _thrash;
     [SerializeField] GameObject _voxelObjectPos;
 
-    public void VoxelObjectManagerStart()
-    {
-        if (PlayerPrefs.HasKey("voxelObjectCount"))
-            voxelObjectCount = PlayerPrefs.GetInt("voxelObjectCount");
-        else
-            PlayerPrefs.SetInt("voxelObjectCount", voxelObjectCount);
-    }
-
     public void StartObjectPlacement()
     {
         _thrash = new GameObject("thrash");
-        _voxelMainObject = Instantiate(_VoxelObject[voxelObjectCount % _VoxelObject.Count], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
+        _voxelMainObject = Instantiate(_VoxelObject[GameManager.Instance.level % _VoxelObject.Count], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
     }
 
     public void ChildDown(GameObject stickman, float downChild)
     {
         Rigidbody rb = stickman.GetComponent<Rigidbody>();
+
+        downChild /= GameManager.Instance.level;
 
         MoneySystem.Instance.MoneyTextRevork((int)downChild);
         stickman.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -48,8 +42,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     private void NewVoxel()
     {
         _thrash.SetActive(false);
-        voxelObjectCount++;
-        VoxelObjectManagerStart();
+        GameManager.Instance.level++;
         StartObjectPlacement();
     }
 }
