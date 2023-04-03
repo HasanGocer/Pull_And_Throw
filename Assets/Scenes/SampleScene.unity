@@ -3842,8 +3842,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSource: {fileID: 330585548}
   mainMusic: {fileID: 0}
-  bloomEffect: {fileID: 0}
-  goldEffect: {fileID: 0}
+  coin: {fileID: 8300000, guid: 997e20525b02e554b84e6d30b55d1512, type: 3}
+  pipe: {fileID: 8300000, guid: 2c2a2b36a6f1a804ca73b94ecea9ad44, type: 3}
+  upgrade: {fileID: 8300000, guid: 88cbe423ef16927419ee4c3416736764, type: 3}
+  finish: {fileID: 8300000, guid: af319fca31fd9ed4d9954eaf6f821502, type: 3}
 --- !u!114 &1713457377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3865,8 +3867,7 @@ MonoBehaviour:
       type: 3}
     objectParent: {fileID: 0}
     poolSize: 150
-  - objectPrefab: {fileID: 1589019458639318, guid: fb2dbd343895b6c47888986bf91da33c,
-      type: 3}
+  - objectPrefab: {fileID: 180860, guid: 89fdb9fee1f1fe94cb02018221255e50, type: 3}
     objectParent: {fileID: 0}
     poolSize: 150
 --- !u!114 &1713457378

@@ -35,8 +35,9 @@ public class MultiplierTouch : MonoBehaviour
                 GameManager.Instance.MultiplierPlacementWrite(MultiplierSystem.Instance.multiplierStat);
                 isFree = false;
             }
-
         }
+        else if (other.gameObject.CompareTag("Object"))
+            SoundSystem.Instance.CallPipeSound();
     }
 
 }

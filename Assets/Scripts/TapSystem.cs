@@ -109,6 +109,8 @@ public class TapSystem : MonoSingleton<TapSystem>
             stickman.transform.position = _stickmanStartHitPos.transform.position;
             stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 90, stickman.transform.rotation.y, stickman.transform.rotation.z));
             objectID.rb.velocity = new Vector3(0, 0, _velocityPower);
+            if (isTouch)
+                objectID.rb.velocity += new Vector3(0, 0, 10);
             stickman.GetComponent<AnimController>().FireOpen(isTouch);
 
             isTap = false;

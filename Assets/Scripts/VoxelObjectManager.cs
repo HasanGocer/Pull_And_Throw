@@ -38,6 +38,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         stickman.SetActive(false);
         ParticalManager.Instance.CallCoinPartical();
         Vibration.Vibrate(30);
+        SoundSystem.Instance.CallCoinSound();
 
         int count;
         for (int i = 0; i < (int)downChild; i++)

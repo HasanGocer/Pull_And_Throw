@@ -80,6 +80,7 @@ public class UpperManager : MonoSingleton<UpperManager>
             MoneySystem.Instance.MoneyTextRevork(-itemData.fieldPrice.stickmanConstant);
             itemData.SetStickmanConstant();
             TapSystem.Instance.SetNewObjectCount();
+            SoundSystem.Instance.CallUpgradeSound();
 
             _stickmanUpperLevel.text = "level " + itemData.factor.stickmanConstant;
             _StickmanUpperMoney.text = itemData.fieldPrice.stickmanConstant.ToString();
@@ -95,6 +96,7 @@ public class UpperManager : MonoSingleton<UpperManager>
             MoneySystem.Instance.MoneyTextRevork(-itemData.fieldPrice.addedMultiplier);
             itemData.SetAddedMultiplier();
             MultiplierSystem.Instance.NewObject();
+            SoundSystem.Instance.CallUpgradeSound();
 
             _addedMultiplierLevel.text = "level " + itemData.factor.addedMultiplier;
             _addedMultiplierMoney.text = itemData.fieldPrice.addedMultiplier.ToString();
@@ -109,6 +111,7 @@ public class UpperManager : MonoSingleton<UpperManager>
         {
             MoneySystem.Instance.MoneyTextRevork((int)-itemData.fieldPrice.shotCountdown);
             itemData.SetShotCountdown();
+            SoundSystem.Instance.CallUpgradeSound();
 
             _shotTimeLevel.text = "level " + itemData.factor.shotCountdown;
             _shotTimeMoney.text = itemData.fieldPrice.shotCountdown.ToString();
