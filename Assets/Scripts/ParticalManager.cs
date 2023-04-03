@@ -6,8 +6,8 @@ public class ParticalManager : MonoSingleton<ParticalManager>
 {
     [SerializeField] int _OPCoinParticalCount;
 
-    public void CallCoinPartical()
+    public void CallCoinPartical(GameObject pos)
     {
-        ObjectPool.Instance.GetPooledObjectAdd(_OPCoinParticalCount);
+        ObjectPool.Instance.GetPooledObjectAdd(_OPCoinParticalCount, pos.transform.position);
     }
 }

@@ -153,14 +153,14 @@ public class Buttons : MonoSingleton<Buttons>
     {
         GameManager gameManager = GameManager.Instance;
 
+        gameManager.gameStat = GameManager.GameStat.finish;
         _winPrizeButton.enabled = false;
         BarSystem.Instance.BarStopButton(gameManager.addedMoney);
         yield return new WaitForSeconds(finishWaitTime);
-
-
-        gameManager.SetLevel();
-
-        SceneManager.LoadScene(_startSceneCount);
+        VoxelObjectManager.Instance.StartObjectPlacement();
+        gameManager.gameStat = GameManager.GameStat.start;
+        winPanel.SetActive(false);
+        _winPrizeButton.enabled = true;
     }
     private IEnumerator FailButton()
     {

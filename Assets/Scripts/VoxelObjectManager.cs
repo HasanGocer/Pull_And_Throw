@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
 {
@@ -36,7 +37,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         stickman.SetActive(false);
-        ParticalManager.Instance.CallCoinPartical();
+        ParticalManager.Instance.CallCoinPartical(_voxelMainObject);
         Vibration.Vibrate(30);
         SoundSystem.Instance.CallCoinSound();
 
@@ -47,12 +48,16 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
                 _voxelMainObject.transform.GetChild(count = Random.Range(0, _voxelMainObject.transform.childCount)).GetComponent<Rigidbody>().isKinematic = false;
                 _voxelMainObject.transform.GetChild(count).SetParent(_thrash.transform);
             }
-            else NewVoxel();
+            else
+            {
+                NewVoxel();
+                continue;
+            }
     }
     private void NewVoxel()
     {
         _thrash.SetActive(false);
         GameManager.Instance.SetLevel();
-        StartObjectPlacement();
+        Buttons.Instance.winPanel.SetActive(true);
     }
 }
