@@ -3775,6 +3775,7 @@ GameObject:
   - component: {fileID: 1713457378}
   - component: {fileID: 1713457377}
   - component: {fileID: 1713457376}
+  - component: {fileID: 1713457381}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3864,6 +3865,10 @@ MonoBehaviour:
       type: 3}
     objectParent: {fileID: 0}
     poolSize: 150
+  - objectPrefab: {fileID: 1589019458639318, guid: fb2dbd343895b6c47888986bf91da33c,
+      type: 3}
+    objectParent: {fileID: 0}
+    poolSize: 150
 --- !u!114 &1713457378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3935,6 +3940,19 @@ MonoBehaviour:
     addedMultiplier: 100
     standartMoney: 100
     shotCountdown: 100
+--- !u!114 &1713457381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713457372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394e8850b3c004049b547386f433a40c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _OPCoinParticalCount: 2
 --- !u!1001 &1772594919
 PrefabInstance:
   m_ObjectHideFlags: 0

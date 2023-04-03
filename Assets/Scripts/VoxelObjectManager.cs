@@ -36,6 +36,8 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         stickman.SetActive(false);
+        ParticalManager.Instance.CallCoinPartical();
+        Vibration.Vibrate(30);
 
         int count;
         for (int i = 0; i < (int)downChild; i++)

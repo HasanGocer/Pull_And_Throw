@@ -68,6 +68,7 @@ public class MultiplierMove : MonoBehaviour
         else if (GameManager.Instance.gameStat == GameManager.GameStat.start && finishTime)
             FinishMove();
         MultiplierSystem.Instance.isMove = false;
+
         if (GameManager.Instance.gameStat == GameManager.GameStat.start)
             gameObject.SetActive(true);
     }
