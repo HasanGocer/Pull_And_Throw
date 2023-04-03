@@ -24,6 +24,9 @@ public class TapSystem : MonoSingleton<TapSystem>
     [SerializeField] float _upperCountdown;
     [SerializeField] float _velocityPower;
     public float objectCount;
+    [SerializeField] GameObject _tapImage;
+    bool isTapImage, isTapCheck;
+
 
     public void Update()
     {
@@ -74,7 +77,23 @@ public class TapSystem : MonoSingleton<TapSystem>
             }
         objectCount += itemData.field.stickmanConstant;
     }
+    public IEnumerator clickTime()
+    {
+        if (isTapImage) isTapCheck = true;
+        isTapImage = true;
+        _tapImage.SetActive(false);
+        yield return new WaitForSeconds(1);
+        if (!isTapCheck)
+        {
+            _tapImage.SetActive(true);
+            isTapImage = false;
+        }
+        else
+        {
+            isTapCheck = false;
+        }
 
+    }
     private void StickmanMove()
     {
         for (int i = 0; i < _stickmans.Count; i++)
@@ -100,6 +119,8 @@ public class TapSystem : MonoSingleton<TapSystem>
             GameObject stickman = StickmanJump();
             ObjectID objectID = stickman.GetComponent<ObjectID>();
             Rigidbody rb = stickman.GetComponent<Rigidbody>();
+            if (isTouch)
+                StartCoroutine(clickTime());
 
             StickmanAdd();
             StickmanMove();

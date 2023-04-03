@@ -21,11 +21,14 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     [SerializeField] GameObject _barPanel;
     [SerializeField] Image _bar;
     [SerializeField] int _maxChildCount;
+    [SerializeField] int _OPCoinUI;
+    [SerializeField] GameObject coinParent;
+    [SerializeField] GameObject startPos, finishPos, coinTemp;
 
     public void StartObjectPlacement()
     {
         _thrash = new GameObject("thrash");
-        _voxelMainObject = Instantiate(_VoxelObject[(GameManager.Instance.level - 1) % _VoxelObject.Count], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
+        _voxelMainObject = Instantiate(_VoxelObject[GameManager.Instance.level % _VoxelObject.Count], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
         _maxChildCount = voxelObjectChildCount;
     }
@@ -43,8 +46,8 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     {
         Rigidbody rb = stickman.GetComponent<Rigidbody>();
 
-        downChild /= GameManager.Instance.level;
-
+        downChild /= (GameManager.Instance.level + 1);
+        print((int)downChild);
         MoneySystem.Instance.MoneyTextRevork((int)downChild);
         stickman.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         rb.velocity = Vector3.zero;
@@ -84,6 +87,19 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         _thrash.SetActive(false);
         GameManager.Instance.SetLevel();
         GameManager.Instance.gameStat = GameManager.GameStat.finish;
+        StartCoroutine(CoinStart());
+    }
+    private IEnumerator CoinStart()
+    {
+        List<GameObject> objects = new List<GameObject>();
+
+        for (int i = 0; i < 8; i++)
+        {
+            objects.Add(ObjectPool.Instance.GetPooledObjectAdd(_OPCoinUI, startPos.transform.position, coinParent.transform));
+            objects[i - 1].transform.DOJump(finishPos.transform.position, 1, 1, 1);
+        }
+        yield return new WaitForSeconds(1);
+        coinTemp.transform.DOShakeScale(1);
         Buttons.Instance.winPanel.SetActive(true);
     }
 }
