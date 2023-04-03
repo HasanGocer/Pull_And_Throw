@@ -30,7 +30,7 @@ public class TapSystem : MonoSingleton<TapSystem>
         if (GameManager.Instance.gameStat == GameManager.GameStat.start && !MultiplierSystem.Instance.isMove)
             if (Input.touchCount > 0)
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
-                    StartCoroutine(TapMechanic());
+                    StartCoroutine(TapMechanic(true));
     }
     public void StickmanSort()
     {
@@ -46,7 +46,7 @@ public class TapSystem : MonoSingleton<TapSystem>
         {
             if (GameManager.Instance.gameStat == GameManager.GameStat.start)
             {
-                StartCoroutine(TapMechanic());
+                StartCoroutine(TapMechanic(false));
                 yield return new WaitForSeconds(ItemData.Instance.field.shotCountdown);
             }
             yield return null;
@@ -74,16 +74,16 @@ public class TapSystem : MonoSingleton<TapSystem>
     }
     private IEnumerator StickmanMoveEnum(int i)
     {
-        _stickmans[i].transform.DOMove(new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - i * _sticmanDistance), 0.1f);
+        _stickmans[i].transform.DOMove(new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z + i * _sticmanDistance), 0.1f);
         yield return new WaitForSeconds(0.1f);
     }
     private void StickmanAdd()
     {
-        _stickmans.Add(ObjectPool.Instance.GetPooledObjectAdd(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z - (_stickmans.Count + 1) * _sticmanDistance)));
+        _stickmans.Add(ObjectPool.Instance.GetPooledObjectAdd(_OPStickmanCount, new Vector3(_stickmanPos.transform.position.x, _stickmanPos.transform.position.y, _stickmanPos.transform.position.z + (_stickmans.Count + 1) * _sticmanDistance)));
         _stickmans[_stickmans.Count - 1].GetComponent<AnimController>().SkinOpen();
     }
 
-    private IEnumerator TapMechanic()
+    private IEnumerator TapMechanic(bool isTouch)
     {
         if (!isTap)
         {
@@ -95,12 +95,13 @@ public class TapSystem : MonoSingleton<TapSystem>
 
             StickmanAdd();
             StickmanMove();
-
+            stickman.transform.DORotate(new Vector3(90, 180, 0), _upperCountdown);
             rb.isKinematic = false;
             yield return new WaitForSeconds(_upperCountdown);
             stickman.transform.position = _stickmanStartHitPos.transform.position;
-            stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 270, stickman.transform.rotation.y, stickman.transform.rotation.z));
+            stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 90, stickman.transform.rotation.y, stickman.transform.rotation.z));
             objectID.rb.velocity = new Vector3(0, 0, _velocityPower);
+            stickman.GetComponent<AnimController>().FireOpen(isTouch);
 
             isTap = false;
         }
@@ -109,7 +110,7 @@ public class TapSystem : MonoSingleton<TapSystem>
     private GameObject StickmanJump()
     {
         GameObject stickman = _stickmans[0];
-        stickman.transform.DOJump(_stickmanFinishJumpPos.transform.position, 1, 1, _upperCountdown);
+        stickman.transform.DOMove(_stickmanFinishJumpPos.transform.position, _upperCountdown);
         _stickmans.RemoveAt(0);
         return stickman;
     }

@@ -50,7 +50,7 @@ public class MultiplierMove : MonoBehaviour
                                 Debug.DrawLine(Camera.main.transform.position, direction, Color.black, 1);
                                 if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 200f))
                                 {
-                                    transform.position = Vector3.Lerp(transform.position, new Vector3(hit.point.x, transform.position.y, hit.point.z), 10);
+                                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, hit.point.y, hit.point.z), 10);
                                     timer = 0;
                                 }
                             }

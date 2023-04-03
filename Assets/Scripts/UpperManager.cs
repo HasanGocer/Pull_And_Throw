@@ -37,8 +37,8 @@ public class UpperManager : MonoSingleton<UpperManager>
         ItemData itemData = ItemData.Instance;
         if (itemData.factor.stickmanConstant > itemData.maxFactor.stickmanConstant)
         {
-            _stickmanUpperLevel.text = "Max Level ";
-            _StickmanUpperMoney.text = "Max Level ";
+            _stickmanUpperLevel.text = "Max  ";
+            _StickmanUpperMoney.text = "Max  ";
         }
         else
         {
@@ -48,8 +48,8 @@ public class UpperManager : MonoSingleton<UpperManager>
 
         if (itemData.factor.addedMultiplier > itemData.maxFactor.addedMultiplier)
         {
-            _addedMultiplierLevel.text = "Max Level ";
-            _addedMultiplierMoney.text = "Max Level ";
+            _addedMultiplierLevel.text = "Max  ";
+            _addedMultiplierMoney.text = "Max  ";
         }
         else
         {
@@ -59,8 +59,8 @@ public class UpperManager : MonoSingleton<UpperManager>
 
         if (itemData.factor.addedMultiplier > itemData.maxFactor.addedMultiplier)
         {
-            _shotTimeLevel.text = "Max Level ";
-            _shotTimeMoney.text = "Max Level ";
+            _shotTimeLevel.text = "Max  ";
+            _shotTimeMoney.text = "Max  ";
         }
         else
         {

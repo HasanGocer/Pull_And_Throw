@@ -27,8 +27,8 @@ public class AnimController : MonoBehaviour
         characters[ItemData.Instance.field.stickmanConstant].gameObject.SetActive(true);
         _fire.SetActive(false);
     }
-    public void FireOpen()
+    public void FireOpen(bool isTouch)
     {
-        if (ItemData.Instance.field.stickmanConstant > 4) _fire.SetActive(true);
+        if (ItemData.Instance.field.stickmanConstant > 4 || isTouch) _fire.SetActive(true);
     }
 }
