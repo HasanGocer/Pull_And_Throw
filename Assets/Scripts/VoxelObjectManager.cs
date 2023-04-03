@@ -74,15 +74,16 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
     {
         while (true)
         {
-            _bar.fillAmount = Mathf.Lerp(_bar.fillAmount, (_maxChildCount - _voxelMainObject.transform.childCount) / _maxChildCount, Time.deltaTime);
+            _bar.fillAmount = Mathf.Lerp(_bar.fillAmount, ((float)_voxelMainObject.transform.childCount) / (float)_maxChildCount, Time.deltaTime);
             yield return new WaitForSeconds(Time.deltaTime);
-            if (_bar.fillAmount == (_maxChildCount - _voxelMainObject.transform.childCount) / _maxChildCount) break;
+            if (_bar.fillAmount == ((float)_voxelMainObject.transform.childCount) / (float)_maxChildCount) break;
         }
     }
     private void NewVoxel()
     {
         _thrash.SetActive(false);
         GameManager.Instance.SetLevel();
+        GameManager.Instance.gameStat = GameManager.GameStat.finish;
         Buttons.Instance.winPanel.SetActive(true);
     }
 }

@@ -2644,7 +2644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240329631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1, y: -3.8, z: 18.2}
+  m_LocalPosition: {x: 5.1, y: -31.9, z: 18.2}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2869,10 +2869,18 @@ MonoBehaviour:
       multiplierBool: 010000
       multiplierCount: 030000000000000000000000
       multiplierTypes: 010000000000000000000000
+      multiplierGO:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
     multiplierMarketClass:
       multiplierBool: 000000
       multiplierCount: 000000000000000000000000
       multiplierTypes: 000000000000000000000000
+      multiplierGO:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
   multiplierMarketPos:
   - {fileID: 2111676283}
   - {fileID: 853475937}

@@ -154,7 +154,6 @@ public class Buttons : MonoSingleton<Buttons>
     {
         GameManager gameManager = GameManager.Instance;
 
-        gameManager.gameStat = GameManager.GameStat.finish;
         _winPrizeButton.enabled = false;
         BarSystem.Instance.BarStopButton(gameManager.addedMoney);
         yield return new WaitForSeconds(finishWaitTime);
