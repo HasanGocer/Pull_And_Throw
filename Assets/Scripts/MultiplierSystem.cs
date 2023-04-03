@@ -28,8 +28,12 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
     public void MultiplierOn()
     {
-        foreach (GameObject item in multiplierStat.multiplierMarketClass.multiplierGO) item.SetActive(true);
-        foreach (GameObject item in multiplierStat.multiplierClass.multiplierGO) item.SetActive(true);
+
+        for (int i = 0; i < multiplierMarketPos.Count; i++)
+            if (multiplierStat.multiplierMarketClass.multiplierBool[i]) multiplierStat.multiplierMarketClass.multiplierGO[i].SetActive(true);
+
+        for (int i = 0; i < multiplierStatPos.Count; i++)
+            if (multiplierStat.multiplierClass.multiplierBool[i]) multiplierStat.multiplierClass.multiplierGO[i].SetActive(true);
     }
 
     public void ObjectPlacement()
