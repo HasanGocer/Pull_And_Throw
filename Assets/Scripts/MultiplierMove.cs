@@ -18,6 +18,7 @@ public class MultiplierMove : MonoBehaviour
     void Start()
     {
         touchStartedOnPlayer = false;
+        gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
@@ -67,6 +68,8 @@ public class MultiplierMove : MonoBehaviour
         else if (GameManager.Instance.gameStat == GameManager.GameStat.start && finishTime)
             FinishMove();
         MultiplierSystem.Instance.isMove = false;
+        if (GameManager.Instance.gameStat == GameManager.GameStat.start)
+            gameObject.SetActive(true);
     }
 
     void FinishMove()

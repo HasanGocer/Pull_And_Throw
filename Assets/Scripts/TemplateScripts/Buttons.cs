@@ -67,8 +67,11 @@ public class Buttons : MonoSingleton<Buttons>
         startPanel.SetActive(true);
 
         UpperManager.Instance.UpperManagerStart();
-        VoxelObjectManager.Instance.StartObjectPlacement(); 
+        VoxelObjectManager.Instance.StartObjectPlacement();
         TapSystem.Instance.StickmanSort();
+        TapSystem.Instance.StickmanOff();
+        VoxelObjectManager.Instance.VoxelOff();
+        AroundManager.Instance.AroundOff();
     }
     public IEnumerator NoThanxOnActive()
     {
@@ -125,6 +128,9 @@ public class Buttons : MonoSingleton<Buttons>
         StartCoroutine(TapSystem.Instance.AuotShot());
         TapSystem.Instance.SetNewObjectCount();
         UpperManager.Instance.PanelOn();
+        TapSystem.Instance.StickmanOn();
+        VoxelObjectManager.Instance.VoxelOn();
+        AroundManager.Instance.AroundOn();
         // MarketSystem.Instance.GameStart();
     }
     private IEnumerator WinButton()

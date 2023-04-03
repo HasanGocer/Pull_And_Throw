@@ -17,7 +17,14 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         _voxelMainObject = Instantiate(_VoxelObject[GameManager.Instance.level % _VoxelObject.Count], _voxelObjectPos.transform.position, _voxelObjectPos.transform.rotation);
         voxelObjectChildCount = _voxelMainObject.transform.childCount;
     }
-
+    public void VoxelOff()
+    {
+        _voxelMainObject.SetActive(false);
+    }
+    public void VoxelOn()
+    {
+        _voxelMainObject.SetActive(true);
+    }
     public void ChildDown(GameObject stickman, float downChild)
     {
         Rigidbody rb = stickman.GetComponent<Rigidbody>();

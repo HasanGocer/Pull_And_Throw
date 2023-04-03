@@ -32,6 +32,14 @@ public class TapSystem : MonoSingleton<TapSystem>
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                     StartCoroutine(TapMechanic(true));
     }
+    public void StickmanOff()
+    {
+        foreach (GameObject item in _stickmans) item.SetActive(false);
+    }
+    public void StickmanOn()
+    {
+        foreach (GameObject item in _stickmans) item.SetActive(true);
+    }
     public void StickmanSort()
     {
         for (int i = 0; i < _stickmanCount; i++)
