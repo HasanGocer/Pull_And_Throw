@@ -533,6 +533,18 @@ Transform:
   m_Father: {fileID: 311402173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &116246283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7868896306949604267, guid: e2ea9127f9100f5408c842476dec2332,
+    type: 3}
+  m_PrefabInstance: {fileID: 2027731005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &162825117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1250,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &347327328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7868896306307640265, guid: e2ea9127f9100f5408c842476dec2332,
+    type: 3}
+  m_PrefabInstance: {fileID: 2027731005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &373911940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1634,9 @@ MonoBehaviour:
   - {fileID: 4704157621912660105, guid: 50d4423b3b7a0fc4ba183db85c71aeea, type: 3}
   voxelObjectChildCount: 0
   _voxelObjectPos: {fileID: 1651701295}
+  _barPanel: {fileID: 347327328}
+  _bar: {fileID: 116246283}
+  _maxChildCount: 0
 --- !u!114 &531474228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4646,6 +4667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868896306307640265, guid: e2ea9127f9100f5408c842476dec2332,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8053220279280375719, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}

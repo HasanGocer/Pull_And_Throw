@@ -131,6 +131,7 @@ public class Buttons : MonoSingleton<Buttons>
         TapSystem.Instance.StickmanOn();
         VoxelObjectManager.Instance.VoxelOn();
         AroundManager.Instance.AroundOn();
+        MultiplierSystem.Instance.MultiplierOn();
         // MarketSystem.Instance.GameStart();
     }
     private IEnumerator WinButton()

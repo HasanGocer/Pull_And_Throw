@@ -36,6 +36,7 @@ public class MultiplierObject : MonoBehaviour
 
         while (multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierMarketCount = Random.Range(0, multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool.Count)]) ;
 
+        multiplierSystem.multiplierStat.multiplierMarketClass.multiplierGO[multiplierMarketCount] = gameObject;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierBool[multiplierMarketCount] = true;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierCount[multiplierMarketCount] = multiplierCount;
         multiplierSystem.multiplierStat.multiplierMarketClass.multiplierTypes[multiplierMarketCount] = multiplierType;

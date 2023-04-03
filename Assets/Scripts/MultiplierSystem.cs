@@ -10,6 +10,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
         public List<bool> multiplierBool = new List<bool>();
         public List<int> multiplierCount = new List<int>();
         public List<MultiplierObject.MultiplierType> multiplierTypes = new List<MultiplierObject.MultiplierType>();
+        public List<GameObject> multiplierGO = new List<GameObject>();
     }
     [System.Serializable]
     public class MultiplierStat
@@ -25,6 +26,12 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
     public List<GameObject> multiplierMarketPos = new List<GameObject>();
     public List<GameObject> multiplierStatPos = new List<GameObject>();
 
+    public void MultiplierOn()
+    {
+        foreach (GameObject item in multiplierStat.multiplierMarketClass.multiplierGO) item.SetActive(true);
+        foreach (GameObject item in multiplierStat.multiplierClass.multiplierGO) item.SetActive(true);
+    }
+
     public void ObjectPlacement()
     {
         for (int i = 0; i < multiplierMarketPos.Count; i++)
@@ -33,6 +40,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
                 GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount, multiplierMarketPos[i].transform.position);
                 MultiplierObject multiplierObject = obj.GetComponent<MultiplierObject>();
 
+                multiplierStat.multiplierMarketClass.multiplierGO[i] = obj;
                 multiplierObject.multiplierCount = multiplierStat.multiplierMarketClass.multiplierCount[i];
                 multiplierObject.multiplierMarketCount = i;
                 multiplierObject.multiplierPosCount = -1;
@@ -40,6 +48,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
                 MaterialSystem.Instance.PipeDraw(ref obj);
                 multiplierObject.CountTextReWrite();
+                obj.SetActive(false);
             }
 
         for (int i = 0; i < multiplierStatPos.Count; i++)
@@ -48,6 +57,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
                 GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMultiplierObjectCount, multiplierStatPos[i].transform.position);
                 MultiplierObject multiplierObject = obj.GetComponent<MultiplierObject>();
 
+                multiplierStat.multiplierClass.multiplierGO[i] = obj;
                 multiplierObject.multiplierCount = multiplierStat.multiplierClass.multiplierCount[i];
                 multiplierObject.multiplierPosCount = i;
                 multiplierObject.multiplierMarketCount = -1;
@@ -55,6 +65,7 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
 
                 MaterialSystem.Instance.PipeDraw(ref obj);
                 multiplierObject.CountTextReWrite();
+                obj.SetActive(false);
             }
     }
     public bool MarketIsFree()
