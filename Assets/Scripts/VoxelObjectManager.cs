@@ -47,7 +47,7 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         Rigidbody rb = stickman.GetComponent<Rigidbody>();
 
         downChild /= (GameManager.Instance.level + 1);
-        print((int)downChild);
+
         MoneySystem.Instance.MoneyTextRevork((int)downChild);
         stickman.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         rb.velocity = Vector3.zero;
@@ -96,10 +96,13 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         for (int i = 0; i < 8; i++)
         {
             objects.Add(ObjectPool.Instance.GetPooledObjectAdd(_OPCoinUI, startPos.transform.position, coinParent.transform));
-            objects[i - 1].transform.DOJump(finishPos.transform.position, 1, 1, 1);
+            yield return new WaitForSeconds(0.1f);
+            objects[i].transform.DOJump(finishPos.transform.position, 1, 1, 1);
         }
         yield return new WaitForSeconds(1);
         coinTemp.transform.DOShakeScale(1);
+        for (int i = 0; i < 8; i++)
+            objects[i].SetActive(false);
         Buttons.Instance.winPanel.SetActive(true);
     }
 }

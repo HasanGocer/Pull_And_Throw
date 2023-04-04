@@ -2740,7 +2740,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068552351}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3280,7 +3280,6 @@ MonoBehaviour:
   _upperCountdown: 0.4
   _velocityPower: 50
   objectCount: 1
-  _tapImage: {fileID: 1711154238}
 --- !u!1 &1289307775
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,7 +4122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1711154239
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5083,6 +5082,7 @@ GameObject:
   - component: {fileID: 1931579875}
   - component: {fileID: 1931579878}
   - component: {fileID: 1931579879}
+  - component: {fileID: 1931579880}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -5218,6 +5218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsText: {fileID: 77534148}
+--- !u!114 &1931579880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931579873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095f2bb74c866b240a6f6d43d1738340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tapImage: {fileID: 1711154238}
 --- !u!1 &1944815805
 GameObject:
   m_ObjectHideFlags: 0
