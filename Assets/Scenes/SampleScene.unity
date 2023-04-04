@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17975052, g: 0.22506672, b: 0.306568, a: 1}
+  m_IndirectSpecularColor: {r: 0.17975038, g: 0.22506678, b: 0.30656785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1713,11 +1713,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pipeMaterials:
-  - {fileID: 2100000, guid: d052e239618c5524f8d1f2ce87e5f45f, type: 2}
-  - {fileID: 2100000, guid: 1cdc96336c5167345948b6c4e81b3a20, type: 2}
-  - {fileID: 2100000, guid: 1ab206f37d41ea44cb7654d7a13fc151, type: 2}
-  - {fileID: 2100000, guid: f7e9903638f58764584c627feccd6881, type: 2}
-  - {fileID: 2100000, guid: 272dfc6f00a20af41b18a3550aa2a44f, type: 2}
+  - {fileID: 2100000, guid: 9e249b11d5a8eb04aa7e6d61cf2183c2, type: 2}
+  - {fileID: 2100000, guid: 01ae96d2a4f595245aa8d49093bf6ec1, type: 2}
+  - {fileID: 2100000, guid: c9ee01f5e369194488fe3d424a655b85, type: 2}
+  - {fileID: 2100000, guid: 6387d8f73adc8d848bac84673170d7f1, type: 2}
+  - {fileID: 2100000, guid: 18c78910d035f9b439ef2e37e66ba2d3, type: 2}
 --- !u!114 &531474229
 MonoBehaviour:
   m_ObjectHideFlags: 0
