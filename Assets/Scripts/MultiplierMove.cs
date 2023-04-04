@@ -92,6 +92,7 @@ public class MultiplierMove : MonoBehaviour
             multiplierObject.multiplierPosCount = multiplierObject.tempMultiplierPosCount;
             transform.position = multiplierSystem.multiplierStatPos[multiplierObject.tempMultiplierPosCount].transform.position;
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.tempMultiplierPosCount] = true;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierGO[multiplierObject.tempMultiplierPosCount] = gameObject;
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.tempMultiplierPosCount] = multiplierObject.multiplierType;
 
@@ -101,6 +102,7 @@ public class MultiplierMove : MonoBehaviour
         else if (multiplierObject.multiplierPosCount != -1)
         {
             transform.position = multiplierSystem.multiplierStatPos[multiplierObject.multiplierPosCount].transform.position;
+            multiplierSystem.multiplierStat.multiplierClass.multiplierGO[multiplierObject.multiplierPosCount] = gameObject;
             multiplierSystem.multiplierStat.multiplierClass.multiplierBool[multiplierObject.multiplierPosCount] = true;
             multiplierSystem.multiplierStat.multiplierClass.multiplierCount[multiplierObject.multiplierPosCount] = multiplierObject.multiplierCount;
             multiplierSystem.multiplierStat.multiplierClass.multiplierTypes[multiplierObject.multiplierPosCount] = multiplierObject.multiplierType;
