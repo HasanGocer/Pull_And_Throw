@@ -35,6 +35,15 @@ public class MultiplierSystem : MonoSingleton<MultiplierSystem>
         for (int i = 0; i < multiplierStatPos.Count; i++)
             if (multiplierStat.multiplierClass.multiplierBool[i]) multiplierStat.multiplierClass.multiplierGO[i].SetActive(true);
     }
+    public void MultiplierOff()
+    {
+
+        for (int i = 0; i < multiplierMarketPos.Count; i++)
+            if (multiplierStat.multiplierMarketClass.multiplierBool[i]) multiplierStat.multiplierMarketClass.multiplierGO[i].SetActive(false);
+
+        for (int i = 0; i < multiplierStatPos.Count; i++)
+            if (multiplierStat.multiplierClass.multiplierBool[i]) multiplierStat.multiplierClass.multiplierGO[i].SetActive(false);
+    }
 
     public void ObjectPlacement()
     {

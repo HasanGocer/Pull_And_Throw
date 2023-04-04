@@ -162,6 +162,11 @@ public class Buttons : MonoSingleton<Buttons>
         gameManager.gameStat = GameManager.GameStat.start;
         winPanel.SetActive(false);
         _winPrizeButton.enabled = true;
+        UpperManager.Instance.PanelOn();
+        TapSystem.Instance.StickmanOn();
+        VoxelObjectManager.Instance.VoxelOn();
+        AroundManager.Instance.AroundOn();
+        MultiplierSystem.Instance.MultiplierOn();
     }
     private IEnumerator FailButton()
     {

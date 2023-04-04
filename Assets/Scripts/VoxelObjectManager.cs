@@ -87,6 +87,11 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         _thrash.SetActive(false);
         GameManager.Instance.SetLevel();
         GameManager.Instance.gameStat = GameManager.GameStat.finish;
+        UpperManager.Instance.PanelOff();
+        TapSystem.Instance.StickmanOff();
+        VoxelObjectManager.Instance.VoxelOff();
+        AroundManager.Instance.AroundOff();
+        MultiplierSystem.Instance.MultiplierOff();
         StartCoroutine(CoinStart());
     }
     private IEnumerator CoinStart()

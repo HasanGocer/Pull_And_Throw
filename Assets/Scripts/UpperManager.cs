@@ -22,7 +22,7 @@ public class UpperManager : MonoSingleton<UpperManager>
         _upgradePanel.SetActive(true);
     }
 
-    private void PanelOff()
+    public void PanelOff()
     {
         _upgradePanel.SetActive(false);
     }
