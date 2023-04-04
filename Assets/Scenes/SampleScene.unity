@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17975038, g: 0.22506678, b: 0.30656785, a: 1}
+  m_IndirectSpecularColor: {r: 0.17975052, g: 0.22506672, b: 0.306568, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5212,7 +5212,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931579873}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd8cb6b40f9528d4f85fcd0b48ad270e, type: 3}
   m_Name: 
@@ -5330,6 +5330,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 43596842}
     m_Modifications:
+    - target: {fileID: 3605816451003310301, guid: e2ea9127f9100f5408c842476dec2332,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4507270037157803402, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}
       propertyPath: m_RootOrder
@@ -5482,13 +5487,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7868896304868749435, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868896304868749435, guid: e2ea9127f9100f5408c842476dec2332,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868896304868749435, guid: e2ea9127f9100f5408c842476dec2332,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868896304868749435, guid: e2ea9127f9100f5408c842476dec2332,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 680
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868896304868749435, guid: e2ea9127f9100f5408c842476dec2332,
+        type: 3}
       propertyPath: m_SizeDelta.y
-      value: -2279.5059
+      value: 77.3
       objectReference: {fileID: 0}
     - target: {fileID: 7868896304868749435, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 906
+      value: -271
       objectReference: {fileID: 0}
     - target: {fileID: 7868896306307640265, guid: e2ea9127f9100f5408c842476dec2332,
         type: 3}
