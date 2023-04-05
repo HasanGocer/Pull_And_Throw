@@ -53,7 +53,6 @@ public class VoxelObjectManager : MonoSingleton<VoxelObjectManager>
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         stickman.SetActive(false);
-        ParticalManager.Instance.CallCoinPartical(_voxelMainObject);
         Vibration.Vibrate(30);
         SoundSystem.Instance.CallCoinSound();
 
