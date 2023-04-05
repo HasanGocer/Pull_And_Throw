@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17975052, g: 0.22506672, b: 0.306568, a: 1}
+  m_IndirectSpecularColor: {r: 0.17975038, g: 0.22506678, b: 0.30656785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,6 +320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -419,6 +424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -577,7 +587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162825117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.91, y: 0.91, z: 3.8}
+  m_LocalPosition: {x: 18.91, y: 0.91, z: -12.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -797,6 +807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -1467,6 +1482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1824,6 +1844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2064,6 +2089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2163,6 +2193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -2412,6 +2447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -3503,6 +3543,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3603,6 +3648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3702,6 +3752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -3871,6 +3926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -4485,7 +4545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712573844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.8, y: -1.7, z: -7.9}
+  m_LocalPosition: {x: 15.8, y: -1.7, z: -24.4}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4878,7 +4938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795528338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.88, y: 22.69, z: -12.23}
+  m_LocalPosition: {x: 20.88, y: 34.7, z: -46.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5223,6 +5283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
@@ -6332,6 +6397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
       propertyPath: m_RootOrder
@@ -6741,6 +6811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pri_Pipe_C_02 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078400887431314819, guid: ab224dde6dc3508419a87531136ec09e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887834497706059577, guid: ab224dde6dc3508419a87531136ec09e,
         type: 3}
