@@ -111,11 +111,12 @@ public class TapSystem : MonoSingleton<TapSystem>
             rb.isKinematic = false;
             yield return new WaitForSeconds(_upperCountdown);
 
-            int yRB = Random.Range(-10, 35);
+            int yRB = Random.Range(-5, 35);
+            int xRB = Random.Range(-10, 10);
 
             stickman.transform.position = _stickmanStartHitPos.transform.position;
             stickman.transform.rotation = Quaternion.Euler(new Vector3(stickman.transform.rotation.x + 90 - yRB, stickman.transform.rotation.y, stickman.transform.rotation.z));
-            objectID.rb.velocity = new Vector3(0, yRB, _velocityPower);
+            objectID.rb.velocity = new Vector3(xRB, yRB, _velocityPower);
             if (isTouch)
                 objectID.rb.velocity += new Vector3(0, 0, 10);
             stickman.GetComponent<AnimController>().FireOpen(isTouch);
